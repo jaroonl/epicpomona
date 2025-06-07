@@ -266,12 +266,13 @@ const AboutUs: React.FC = () => {
             >
               Welcome to Epic Movement at Cal Poly Pomona
             </p>
-                <p
-                className="text-lg leading-relaxed max-md:text-base"
-                style={{ color: "#000000" }}
-                >
-                {"\"We're a Christ-centered community that seeks to know Jesus and make Him known on our campus. We're a group of students who are passionate about growing in our relationship with God. Our community is part of a national movement that focuses on reaching Asian American students. Come as you are. We welcome you with open arms!\""}
-                </p>
+<p
+  className="text-lg leading-relaxed max-md:text-base"
+  style={{ color: "#000000" }}
+>
+  {"We're a Christ-centered community that seeks to know Jesus and make Him known on our campus. We're a group of students who are passionate about growing in our relationship with God. Our community is part of a national movement that focuses on reaching Asian American students. Come as you are. We welcome you with open arms!"}
+</p>
+
           </div>
         </div>
       </section>
