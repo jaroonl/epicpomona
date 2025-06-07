@@ -1,5 +1,3 @@
-// app/about/team/teamMembers.tsx
-
 export interface TeamMember {
   id: string;
   name: string;
