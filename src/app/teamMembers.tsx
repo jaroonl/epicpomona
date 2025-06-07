@@ -91,82 +91,75 @@ export const leadershipMembers: TeamMember[] = [
     {
     id: "leadership-7",
     name: "Jacob",
-    role: "",
+    role: "Guys Bible Study",
     imageUrl: "./emoji.webp",
     altText: "Photo of "
   },
     {
     id: "leadership-8",
-    name: "Guys Bible Study",
-    role: "",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
-  },
-    {
-    id: "leadership-9",
     name: "Trevor",
     role: "Guys Bible Study",
     imageUrl: "./emoji.webp",
     altText: "Photo of "
   },
     {
-    id: "leadership-10",
+    id: "leadership-9",
     name: "Ben",
     role: "Guys Bible Study",
     imageUrl: "./emoji.webp",
     altText: "Photo of "
   },
     {
-    id: "leadership-11",
+    id: "leadership-10",
     name: "Dean",
     role: "Connections Outreach",
     imageUrl: "./emoji.webp",
     altText: "Photo of "
   },
     {
-    id: "leadership-12",
+    id: "leadership-11",
     name: "Kyler",
     role: "Connections Outreach",
     imageUrl: "./emoji.webp",
     altText: "Photo of "
   },
     {
-    id: "leadership-13",
+    id: "leadership-12",
     name: "Jonny",
     role: "Connections Inreach",
     imageUrl: "./emoji.webp",
     altText: "Photo of "
   },
     {
-    id: "leadership-14",
+    id: "leadership-13",
     name: "Elijah",
     role: "Connections Inreach",
     imageUrl: "./emoji.webp",
     altText: "Photo of "
   },
     {
-    id: "leadership-15",
+    id: "leadership-14",
     name: "Anna",
     role: "Prayer",
     imageUrl: "./emoji.webp",
     altText: "Photo of "
   },
     {
-    id: "leadership-16",
+    id: "leadership-15",
     name: "Edward",
     role: "Prayer",
     imageUrl: "./emoji.webp",
     altText: "Photo of "
   },
     {
-    id: "leadership-17",
+    id: "leadership-16",
     name: "Ian",
     role: "Hospitality",
     imageUrl: "./emoji.webp",
     altText: "Photo of "
   },
     {
-    id: "leadership-18",
+    id: "leadership-17",
     name: "Amanda",
     role: "Hospitality",
     imageUrl: "./emoji.webp",
