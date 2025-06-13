@@ -1,4 +1,4 @@
-"use client";
+
 import * as React from "react";
 export const HeroSection: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ export const HeroSection: React.FC = () => {
               <p className="text-2xl font-bold text-sky-500 max-md:max-w-full">
                 Join our discord and instagram to stay updated!
               </p>
-              <div className="self-center mt-5 max-w-full w-[484px]" space={121}>
+              <div className="self-center mt-5 max-w-full w-[484px]">
                 <SocialConnectButtons />
               </div>
             </div>
