@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 export const HeroSection: React.FC = () => {
   return (
