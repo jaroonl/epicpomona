@@ -60,10 +60,7 @@ export const PrayerSection: React.FC = () => {
       </h2>
       <div className="flex flex-col pl-20 mt-11 w-full max-md:pl-5 max-md:mt-10 max-md:max-w-full">
         <p className="self-start text-2xl font-thin text-black max-md:max-w-full">
-          Prayer is our way of connecting with God. It's powerful because He
-          hears us. In fact, God is always ready for us to come to Him with
-          both our praise and our requests. Even the smallest, most
-          seemingly insignificant prayer can have a big impact.
+          {"Prayer is our way of connecting with God. It's powerful because He hears us. In fact, God is always ready for us to come to Him with both our praise and our requests. Even the smallest, most seemingly insignificant prayer can have a big impact. "}
         </p>
         <button className="overflow-hidden self-center mt-24 ml-6 w-52 max-w-full text-base leading-none bg-sky-600 border-solid border-[color:var(--sds-color-border-brand-default)] border-[length:var(--sds-size-stroke-border)] gap-[var(--sds-size-space-200)] min-h-[63px] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)] text-[color:var(--sds-color-text-brand-on-brand)] max-md:mt-10">
           Get Prayer
@@ -80,9 +77,7 @@ export const SupportSection: React.FC = () => {
       </h2>
       <div className="flex flex-col pl-20 mt-16 w-full max-md:pl-5 max-md:mt-10 max-md:max-w-full">
         <p className="self-start text-2xl font-thin text-black max-md:max-w-full">
-          Epic is a movement and ministry that relies on the generous
-          support of others to thrive. Want to make a difference? Partner
-          with us by giving today.
+          {" Epic is a movement and ministry that relies on the generous support of others to thrive. Want to make a difference? Partner with us by giving today. "}
         </p>
         <button className="overflow-hidden self-center mt-32 ml-12 w-52 max-w-full text-base leading-none whitespace-nowrap bg-sky-600 border-solid border-[color:var(--sds-color-border-brand-default)] border-[length:var(--sds-size-stroke-border)] gap-[var(--sds-size-space-200)] min-h-[63px] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)] text-[color:var(--sds-color-text-brand-on-brand)] max-md:mt-10">
           Give
