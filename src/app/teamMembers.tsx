@@ -9,38 +9,45 @@ export interface TeamMember {
 export const staffMembers: TeamMember[] = [
   {
     id: "staff-1",
-    name: "Jaime Lam",
+    name: "Jamie Lam",
     role: "Staff",
-    imageUrl: "./emoji.webp",
-    altText: "Jaime Lam Photo"
+    imageUrl: "./jamie.jpg",
+    altText: "Photo Jamie Lam",
   },
-    {
+  {
     id: "staff-2",
-    name: "Dillon Kim",
+    name: "Jared Nojima",
     role: "Staff",
-    imageUrl: "./emoji.webp",
-    altText: "Dillon Kim Photo"
+    imageUrl: "./jared.jpg",
+    altText: "Photo Jared Nojima",
   },
-    {
+  {
     id: "staff-3",
+    name: "Nicolas Kim",
+    role: "Staff",
+    imageUrl: "./nicolas.jpg",
+    altText: "Photo Nicolas Kim",
+  },
+  {
+    id: "staff-4",
     name: "Canaan Matsunaga",
     role: "Staff",
-    imageUrl: "./emoji.webp",
-    altText: "Canaan Matsunaga Photo"
+    imageUrl: "./canaan.jpg",
+    altText: "Photo Canaan Matsunaga",
   },
-    {
-    id: "staff-4",
+  {
+    id: "staff-5",
     name: "Jonah Lysne",
     role: "Staff",
     imageUrl: "./emoji.webp",
-    altText: "Jonah Lysne Photo"
+    altText: "Photo Jonah Lysne",
   },
-    {
-    id: "staff-5",
+  {
+    id: "staff-6",
     name: "Jaron Lin",
     role: "Staff",
-    imageUrl: "./emoji.webp",
-    altText: "Jaron Lin Photo"
+    imageUrl: "./jaron.jpg",
+    altText: "Photo Jaron Lin",
   },
   // More staff if needed...
 ];
@@ -48,125 +55,122 @@ export const staffMembers: TeamMember[] = [
 export const leadershipMembers: TeamMember[] = [
   {
     id: "leadership-1",
-    name: "Timothy",
+    name: "Timothy Lee",
     role: "Media & Design",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./tim.jpg",
+    altText: "Photo of Timothy",
   },
-    {
+  {
     id: "leadership-2",
-    name: "Davin",
+    name: "Davin Cheung",
     role: "Media & Design",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./davin.jpg",
+    altText: "Photo of Davin",
   },
-    {
+  {
     id: "leadership-3",
-    name: "Parke",
+    name: "Parke Zitzmann",
     role: "Praise",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./parke.jpg",
+    altText: "Photo of Parke",
   },
-    {
+  {
     id: "leadership-4",
-    name: "Chris",
+    name: "Christopher Chen",
     role: "Weekly",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./christopher.jpg",
+    altText: "Photo of Christopher",
   },
-    {
+  {
     id: "leadership-5",
-    name: "Hailey",
+    name: "Hailey Au",
     role: "Weekly",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./hailey.jpg",
+    altText: "Photo of Hailey",
   },
-    {
+  {
     id: "leadership-6",
-    name: "Kristen",
+    name: "Kristen Tang",
     role: "Girls Bible Study",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./kristen.jpg",
+    altText: "Photo of Kristen",
   },
-    {
+  {
     id: "leadership-7",
-    name: "Jacob",
-    role: "Guys Bible Study",
+    name: "Jacob Chow",
+    role: "Boys Bible Study",
     imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    altText: "Photo of Jacob",
   },
-    {
+  {
     id: "leadership-8",
-    name: "Trevor",
-    role: "Guys Bible Study",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    name: "Trevor Cheng",
+    role: "Boys Bible Study",
+    imageUrl: "./trevor.jpg",
+    altText: "Photo of Trevor",
   },
-    {
+  {
     id: "leadership-9",
-    name: "Ben",
-    role: "Guys Bible Study",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    name: "Ben Ha",
+    role: "Boys Bible Study",
+    imageUrl: "./ben.jpg",
+    altText: "Photo of Ben",
   },
-    {
+  {
     id: "leadership-10",
-    name: "Dean",
+    name: "Dean Guillermo",
     role: "Connections Outreach",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./dean.jpg",
+    altText: "Photo of Dean",
   },
-    {
+  {
     id: "leadership-11",
-    name: "Kyler",
+    name: "Kyler Yu",
     role: "Connections Outreach",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./kyler.jpg",
+    altText: "Photo of Kyler",
   },
-    {
+  {
     id: "leadership-12",
-    name: "Jonny",
+    name: "Jonathan Dang",
     role: "Connections Inreach",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./jonathan.jpg",
+    altText: "Photo of Jonathan",
   },
-    {
+  {
     id: "leadership-13",
-    name: "Elijah",
+    name: "Elijah Harnanto",
     role: "Connections Inreach",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./elijah.png",
+    altText: "Photo of Elijah",
   },
-    {
+  {
     id: "leadership-14",
-    name: "Anna",
+    name: "Anna Yee",
     role: "Prayer",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./anna.jpg",
+    altText: "Photo of Anna",
   },
-    {
+  {
     id: "leadership-15",
-    name: "Edward",
+    name: "Edward Delano",
     role: "Prayer",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./edward.jpg",
+    altText: "Photo of Edward",
   },
-    {
+  {
     id: "leadership-16",
-    name: "Ian",
+    name: "Ian Liu",
     role: "Hospitality",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./ian.jpg",
+    altText: "Photo of Ian",
   },
-    {
+  {
     id: "leadership-17",
-    name: "Amanda",
+    name: "Amanda Wong",
     role: "Hospitality",
-    imageUrl: "./emoji.webp",
-    altText: "Photo of "
+    imageUrl: "./amanda.jpg",
+    altText: "Photo of Amanda",
   },
-  
   // More leadership...
 ];
-
-

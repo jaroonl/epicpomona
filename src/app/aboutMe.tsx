@@ -20,16 +20,27 @@ const MissionHeader: React.FC = () => (
         className="text-2xl font-light leading-relaxed max-md:text-xl max-sm:text-lg mb-4"
         style={{ color: "#0093D0" }}
       >
-        To invite, integrate, and send Asian Americans to reach the world for Christ
+        To invite, integrate, and send Asian Americans to reach the world for
+        Christ
       </p>
       <a
-        href="#"
+        href="https://epicmovement.com/mission/"
         className="inline-flex items-center text-base font-medium transition-colors duration-200 border-b-2 pb-1"
         style={{ color: "#1D2046", borderColor: "#1D2046" }}
       >
         Click here to learn more!
-        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        <svg
+          className="ml-2 w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
         </svg>
       </a>
     </div>
@@ -67,7 +78,9 @@ const MissionPanel: React.FC<MissionPanelProps> = ({
     />
     <div className="flex flex-col gap-4 items-start w-full">
       <header className="flex items-center gap-3 w-full">
-        <span className="text-3xl font-bold text-neutral-400 leading-none">{number}</span>
+        <span className="text-3xl font-bold text-neutral-400 leading-none">
+          {number}
+        </span>
         <div className="w-8 h-px bg-neutral-300"></div>
         <h3
           className="text-3xl font-bold tracking-wide uppercase max-sm:text-2xl leading-tight"
@@ -76,7 +89,10 @@ const MissionPanel: React.FC<MissionPanelProps> = ({
           {title}
         </h3>
       </header>
-      <p className="w-full text-lg leading-relaxed max-sm:text-base" style={{ color: "#000000" }}>
+      <p
+        className="w-full text-lg leading-relaxed max-sm:text-base"
+        style={{ color: "#000000" }}
+      >
         {description}
       </p>
     </div>
@@ -88,28 +104,31 @@ const MissionStatement: React.FC = () => {
     {
       number: "01",
       title: "invite",
-      image: "https://placehold.co/500x500/4a4a4a/ffffff",
+      image: "./LargeGroup.png",
       description:
         "We invite Asian American students and communities to come and see who Jesus is and his mission given to each of us. (Luke 14:15-24, Isaiah 55:1-2)",
     },
     {
       number: "02",
       title: "integrate",
-      image: "https://placehold.co/500x500/4a4a4a/ffffff",
+      image: "./Tabling.jpg",
       description:
         "We integrate our faith in every area of our lives, helping each other grow, multiply and build on God's faith in us.",
     },
     {
       number: "03",
       title: "send",
-      image: "https://placehold.co/500x500/4a4a4a/ffffff",
+      image: "./SanDiego.png",
       description:
         "We send disciples to reach the world for Christ, empowering them to make disciples who make disciples in every nation and culture.",
     },
   ];
 
   return (
-    <section className="py-20 px-8 w-full font-[Outfit]" style={{ backgroundColor: "#FAF9F6" }}>
+    <section
+      className="py-20 px-8 w-full font-[Outfit]"
+      style={{ backgroundColor: "#FAF9F6" }}
+    >
       <MissionHeader />
       <div className="flex flex-wrap justify-center gap-8 mt-20 max-w-[1440px] mx-auto">
         {missionPanels.map((panel, index) => (
@@ -135,7 +154,12 @@ interface TeamCardProps {
   altText?: string;
 }
 
-const TeamCard: React.FC<TeamCardProps> = ({ imageUrl, name, role, altText = "" }) => (
+const TeamCard: React.FC<TeamCardProps> = ({
+  imageUrl,
+  name,
+  role,
+  altText = "",
+}) => (
   <article
     className="box-border flex flex-col items-center gap-6 p-8 border border-neutral-200 rounded-xl shadow-md h-[380px] w-[280px] max-md:p-6 max-md:w-64 max-sm:max-w-full max-sm:w-[280px] hover:shadow-lg transition-shadow duration-300"
     style={{ backgroundColor: "#FAF9F6" }}
@@ -146,7 +170,10 @@ const TeamCard: React.FC<TeamCardProps> = ({ imageUrl, name, role, altText = "" 
       className="object-cover aspect-[13/14] h-[240px] w-[220px] border-2 border-neutral-200 rounded-lg max-md:h-[216px] max-md:w-[200px] max-sm:h-[238px] max-sm:w-[220px]"
     />
     <div className="flex flex-col items-center text-center">
-      <h3 className="text-xl font-bold mb-1 leading-tight" style={{ color: "#1D2046" }}>
+      <h3
+        className="text-xl font-bold mb-1 leading-tight"
+        style={{ color: "#1D2046" }}
+      >
         {name}
       </h3>
       <p className="text-base font-medium" style={{ color: "#0093D0" }}>
@@ -170,8 +197,9 @@ interface TeamSectionProps {
 }
 
 const TeamSection: React.FC<TeamSectionProps> = ({ title, members }) => {
-  const chunked = Array.from({ length: Math.ceil(members.length / 3) }, (_, i) =>
-    members.slice(i * 3, i * 3 + 3)
+  const chunked = Array.from(
+    { length: Math.ceil(members.length / 3) },
+    (_, i) => members.slice(i * 3, i * 3 + 3)
   );
 
   return (
@@ -221,7 +249,7 @@ const OurTeam: React.FC = () => {
           className="text-xl leading-relaxed max-md:text-lg max-sm:text-base"
           style={{ color: "#0093D0" }}
         >
-          Meet the individuals who make Epic Movement possible!
+          Meet the individuals who make Epic Movement at Pomona possible!
         </p>
       </header>
 
@@ -245,34 +273,44 @@ const AboutUs: React.FC = () => {
 
       {/* Hero Section */}
       <section
-        className="px-6 md:px-16 lg:px-32 py-20 w-full font-[Outfit]"
+        className="px-8 py-20 w-full font-[Outfit]"
         style={{ backgroundColor: "#FAF9F6" }}
       >
         <div className="max-w-[1440px] mx-auto">
-          <div className="flex items-center gap-6 mb-8">
+          <div className="flex items-center gap-6 mb-12">
             <h1
-              className="text-6xl font-bold tracking-tight max-md:text-5xl max-sm:text-4xl leading-tight"
+              className="text-5xl lg:text-6xl font-bold tracking-tight leading-tight"
               style={{ color: "#1D2046" }}
             >
               About Us
             </h1>
-            <div className="flex-1 h-px bg-neutral-300 max-sm:hidden"></div>
+            <div className="flex-1 h-px bg-neutral-300 hidden sm:block"></div>
           </div>
 
-          <div className="max-w-4xl">
-            <p
-              className="text-2xl font-light leading-relaxed mb-8 max-md:text-xl max-sm:text-lg"
-              style={{ color: "#0093D0" }}
-            >
-              Welcome to Epic Movement at Cal Poly Pomona
-            </p>
-<p
-  className="text-lg leading-relaxed max-md:text-base"
-  style={{ color: "#000000" }}
->
-  {"We're a Christ-centered community that seeks to know Jesus and make Him known on our campus. We're a group of students who are passionate about growing in our relationship with God. Our community is part of a national movement that focuses on reaching Asian American students. Come as you are. We welcome you with open arms!"}
-</p>
-
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
+            <div className="flex-1 lg:pr-8">
+              <p
+                className="text-xl lg:text-2xl font-light leading-relaxed mb-6"
+                style={{ color: "#0093D0" }}
+              >
+                Welcome to Epic Movement at Cal Poly Pomona
+              </p>
+              <p
+                className="text-base lg:text-lg leading-relaxed"
+                style={{ color: "#333333" }}
+              >
+                {
+                  "Epic at Pomona is a Christ-centered community that seeks to know Jesus and make Him known on our campus. We hope to foster the development of faith, encourage personal walks with God for those who seek to continually develop themselves in Christ, and to serve as a place to introduce Christ to those who wouldn't normally find themselves in a typical church environment. We welcome you with open arms and hope to see you in person!"
+                }
+              </p>
+            </div>
+            <div className="flex-shrink-0 lg:w-1/3">
+              <img
+                src="https://placehold.co/400x300/e8d5c4/e8d5c4"
+                alt="Epic Movement community"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
           </div>
         </div>
       </section>
