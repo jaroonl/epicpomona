@@ -39,7 +39,7 @@ export const staffMembers: TeamMember[] = [
     id: "staff-5",
     name: "Jonah Lysne",
     role: "Staff",
-    imageUrl: "./emoji.webp",
+    imageUrl: "./jonah.jpg",
     altText: "Photo Jonah Lysne",
   },
   {

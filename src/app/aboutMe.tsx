@@ -1,54 +1,49 @@
 "use client";
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { staffMembers, leadershipMembers } from "./teamMembers";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 
 /* ====== MISSION COMPONENTS ====== */
 
 const MissionHeader: React.FC = () => (
   <section
-    className="flex flex-col lg:flex-row items-center justify-between w-full max-w-[1440px] px-8 py-16 mx-auto gap-8"
+    className="flex flex-col items-center justify-center text-center w-full max-w-[1440px] px-8 pt-10 pb-4 mx-auto gap-6"
     style={{ backgroundColor: "#FAF9F6" }}
   >
-    <div className="flex-1">
-      <h1
-        className="text-6xl font-bold tracking-tight mb-8 max-md:text-5xl max-sm:text-4xl leading-tight"
-        style={{ color: "#1D2046" }}
+    <h2
+      className="text-5xl font-bold tracking-tight max-md:text-4xl max-sm:text-3xl leading-tight"
+      style={{ color: "#1D2046" }}
+    >
+      Mission Statement
+    </h2>
+    <p
+      className="text-2xl font-light leading-relaxed max-md:text-xl max-sm:text-lg"
+      style={{ color: "#0093D0" }}
+    >
+      To invite, integrate, and send Asian Americans to reach the world for Christ
+    </p>
+    <a
+      href="https://epicmovement.com/mission/"
+      className="inline-flex items-center text-base font-medium transition-colors duration-200 border-b-2 pb-1"
+      style={{ color: "#1D2046", borderColor: "#1D2046" }}
+    >
+      Click here to learn more!
+      <svg
+        className="ml-2 w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
       >
-        Mission Statement
-      </h1>
-      <p
-        className="text-2xl font-light leading-relaxed max-md:text-xl max-sm:text-lg mb-4"
-        style={{ color: "#0093D0" }}
-      >
-        To invite, integrate, and send Asian Americans to reach the world for
-        Christ
-      </p>
-      <a
-        href="https://epicmovement.com/mission/"
-        className="inline-flex items-center text-base font-medium transition-colors duration-200 border-b-2 pb-1"
-        style={{ color: "#1D2046", borderColor: "#1D2046" }}
-      >
-        Click here to learn more!
-        <svg
-          className="ml-2 w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17 8l4 4m0 0l-4 4m4-4H3"
-          />
-        </svg>
-      </a>
-    </div>
-    <img
-      src="https://placehold.co/294x276/e8d5c4/e8d5c4"
-      alt="Mission visual"
-      className="h-[276px] w-[294px] object-cover rounded-lg shadow-md max-sm:h-[188px] max-sm:w-[200px]"
-    />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M17 8l4 4m0 0l-4 4m4-4H3"
+        />
+      </svg>
+    </a>
   </section>
 );
 
@@ -126,11 +121,11 @@ const MissionStatement: React.FC = () => {
 
   return (
     <section
-      className="py-20 px-8 w-full font-[Outfit]"
+      className="pt-10 pb-16 px-8 w-full font-[Outfit]"
       style={{ backgroundColor: "#FAF9F6" }}
     >
       <MissionHeader />
-      <div className="flex flex-wrap justify-center gap-8 mt-20 max-w-[1440px] mx-auto">
+      <div className="flex flex-wrap justify-center gap-8 mt-12 max-w-[1440px] mx-auto">
         {missionPanels.map((panel, index) => (
           <MissionPanel
             key={index}
@@ -161,13 +156,13 @@ const TeamCard: React.FC<TeamCardProps> = ({
   altText = "",
 }) => (
   <article
-    className="box-border flex flex-col items-center gap-6 p-8 border border-neutral-200 rounded-xl shadow-md h-[380px] w-[280px] max-md:p-6 max-md:w-64 max-sm:max-w-full max-sm:w-[280px] hover:shadow-lg transition-shadow duration-300"
+    className="box-border flex flex-col items-center gap-6 p-6 border border-neutral-200 rounded-xl shadow-md h-[380px] w-[320px] max-md:w-[280px] hover:shadow-lg transition-shadow duration-300"
     style={{ backgroundColor: "#FAF9F6" }}
   >
     <img
       src={imageUrl}
       alt={altText}
-      className="object-cover aspect-[13/14] h-[240px] w-[220px] border-2 border-neutral-200 rounded-lg max-md:h-[216px] max-md:w-[200px] max-sm:h-[238px] max-sm:w-[220px]"
+      className="object-cover aspect-[13/14] h-[240px] w-[220px] border-2 border-neutral-200 rounded-lg"
     />
     <div className="flex flex-col items-center text-center">
       <h3
@@ -197,9 +192,10 @@ interface TeamSectionProps {
 }
 
 const TeamSection: React.FC<TeamSectionProps> = ({ title, members }) => {
+  const chunkSize = 3; // always display 3 per row
   const chunked = Array.from(
-    { length: Math.ceil(members.length / 3) },
-    (_, i) => members.slice(i * 3, i * 3 + 3)
+    { length: Math.ceil(members.length / chunkSize) },
+    (_, i) => members.slice(i * chunkSize, i * chunkSize + chunkSize)
   );
 
   return (
@@ -215,10 +211,13 @@ const TeamSection: React.FC<TeamSectionProps> = ({ title, members }) => {
       </div>
       <section className="flex flex-col gap-12 w-full">
         {chunked.map((group, index) => (
-          <div
-            key={index}
-            className="flex justify-center gap-8 flex-wrap w-full px-4"
-          >
+  <div
+    key={index}
+className={`flex flex-wrap gap-6 w-full ${
+  group.length === chunkSize ? "justify-between" : "justify-around"
+}`}
+
+  >
             {group.map((member) => (
               <TeamCard key={member.id} {...member} />
             ))}
@@ -261,11 +260,79 @@ const OurTeam: React.FC = () => {
   );
 };
 
+
+
 /* ====== ABOUT US MAIN COMPONENT ====== */
+
+const images = [
+  "/abmecarousel1.jpg",
+  "/abmecarousel2.jpg",
+  "/abmecarousel3.jpg",
+  "/abmecarousel4.jpg",
+  "/abmecarousel5.jpg",
+  "/abmecarousel6.jpg",
+  "/abmecarousel7.jpg",
+  "/abmecarousel8.jpg",
+  "/abmecarousel9.jpg",
+];
+
+const ImageCarousel: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  const goToSlide = (index: number) => {
+    setFade(false); // Start fade-out
+    setTimeout(() => {
+      setCurrentIndex(index);
+      setFade(true); // Trigger fade-in
+    }, 400); // Match the transition duration
+  };
+
+  const prevSlide = () => {
+    goToSlide(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
+  };
+
+  const nextSlide = () => {
+    goToSlide(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
+  };
+
+  return (
+    <div className="relative w-full h-[300px] rounded-lg overflow-hidden shadow-lg">
+      <img
+        key={currentIndex}
+        src={images[currentIndex]}
+        alt={`Slide ${currentIndex + 1}`}
+        className={`w-full h-full object-cover transition-opacity duration-[600ms] ease-in-out ${
+          fade ? "opacity-100" : "opacity-0"
+        }`}
+      />
+
+      {/* Left Arrow */}
+      <button
+        onClick={prevSlide}
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-3xl hover:scale-110 transition-transform duration-300 z-10"
+        aria-label="Previous Slide"
+      >
+        ◀
+      </button>
+
+      {/* Right Arrow */}
+      <button
+        onClick={nextSlide}
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-3xl hover:scale-110 transition-transform duration-300 z-10"
+        aria-label="Next Slide"
+      >
+        ▶
+      </button>
+    </div>
+  );
+};
 
 const AboutUs: React.FC = () => {
   return (
     <>
+      <Header />
+
       <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet"
@@ -300,17 +367,13 @@ const AboutUs: React.FC = () => {
                 style={{ color: "#333333" }}
               >
                 {
-                  "Epic at Pomona is a Christ-centered community that seeks to know Jesus and make Him known on our campus. We hope to foster the development of faith, encourage personal walks with God for those who seek to continually develop themselves in Christ, and to serve as a place to introduce Christ to those who wouldn't normally find themselves in a typical church environment. We welcome you with open arms and hope to see you in person!"
+                  "Epic at Cal Poly Pomona is a Christ-centered community that seeks to know Jesus and make Him known on our campus. We provide a welcoming space where students can freely explore questions about faith, spirtuality, and life. Our hope is to nurture the growth of personal faith and support those who desire to deepen their walk with God. At the same time, we also aim to be a place where those who wouldn't normally find themselves in a typical church environment would be able to encounter Christ in a genuine and approachable way. We welcome you with open arms and would love to see you in person!"
                 }
               </p>
             </div>
-            <div className="flex-shrink-0 lg:w-1/3">
-              <img
-                src="https://placehold.co/400x300/e8d5c4/e8d5c4"
-                alt="Epic Movement community"
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-            </div>
+              <div className="flex-shrink-0 lg:w-1/3 w-full">
+                <ImageCarousel />
+              </div>
           </div>
         </div>
       </section>
@@ -320,6 +383,8 @@ const AboutUs: React.FC = () => {
 
       {/* Our Team Section */}
       <OurTeam />
+
+      <Footer/>
     </>
   );
 };
