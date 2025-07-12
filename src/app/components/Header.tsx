@@ -3,7 +3,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 
 function Header() {
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ function Header() {
     }
   ];
 
-  const handleMouseEnter = (index) => {
+  const handleMouseEnter = (index: number) => {
     setActiveDropdown(index);
   };
 
