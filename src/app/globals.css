@@ -3,6 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --sds-size-space-800: 32px;
+  --sds-size-space-400: 16px;
+  --sds-color-border-default-secondary: rgba(117, 117, 117, 1);
+  --sds-size-space-150: 6px;
+  --sds-size-space-300: 12px;
+  --sds-color-text-neutral-on-neutral: rgba(243, 243, 243, 1);
 }
 
 @theme inline {
