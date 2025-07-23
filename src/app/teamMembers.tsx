@@ -99,7 +99,7 @@ export const leadershipMembers: TeamMember[] = [
     id: "leadership-7",
     name: "Jacob Chow",
     role: "Boys Bible Study",
-    imageUrl: "./emoji.webp",
+    imageUrl: "./jacob.jpg",
     altText: "Photo of Jacob",
   },
   {

@@ -1,9 +1,8 @@
 "use client";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { staffMembers, leadershipMembers } from "./teamMembers";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
 
 /* ====== MISSION COMPONENTS ====== */
 
@@ -22,7 +21,8 @@ const MissionHeader: React.FC = () => (
       className="text-2xl font-light leading-relaxed max-md:text-xl max-sm:text-lg"
       style={{ color: "#0093D0" }}
     >
-      To invite, integrate, and send Asian Americans to reach the world for Christ
+      To invite, integrate, and send Asian Americans to reach the world for
+      Christ
     </p>
     <a
       href="https://epicmovement.com/mission/"
@@ -211,13 +211,12 @@ const TeamSection: React.FC<TeamSectionProps> = ({ title, members }) => {
       </div>
       <section className="flex flex-col gap-12 w-full">
         {chunked.map((group, index) => (
-  <div
-    key={index}
-className={`flex flex-wrap gap-6 w-full ${
-  group.length === chunkSize ? "justify-between" : "justify-around"
-}`}
-
-  >
+          <div
+            key={index}
+            className={`flex flex-wrap gap-6 w-full ${
+              group.length === chunkSize ? "justify-between" : "justify-around"
+            }`}
+          >
             {group.map((member) => (
               <TeamCard key={member.id} {...member} />
             ))}
@@ -259,8 +258,6 @@ const OurTeam: React.FC = () => {
     </main>
   );
 };
-
-
 
 /* ====== ABOUT US MAIN COMPONENT ====== */
 
@@ -367,13 +364,13 @@ const AboutUs: React.FC = () => {
                 style={{ color: "#333333" }}
               >
                 {
-                  "Epic at Cal Poly Pomona is a Christ-centered community that seeks to know Jesus and make Him known on our campus. We provide a welcoming space where students can freely explore questions about faith, spirtuality, and life. Our hope is to nurture the growth of personal faith and support those who desire to deepen their walk with God. At the same time, we also aim to be a place where those who wouldn't normally find themselves in a typical church environment would be able to encounter Christ in a genuine and approachable way. We welcome you with open arms and would love to see you in person!"
+                  "Epic Movement is a Cru ministry dedicated to bringing the gospel to the world through Asian American students. At Cal Poly Pomona, we're a Christ-centered community that seeks to know Jesus deeply and make Him known across our campus. We invite students to ask questions about faith and Christianity, meet new people, and live life together. Whether you're curious about Christianity, looking to develop your faith, or seeking meaningful relationships, we’d love to meet you!"
                 }
               </p>
             </div>
-              <div className="flex-shrink-0 lg:w-1/3 w-full">
-                <ImageCarousel />
-              </div>
+            <div className="flex-shrink-0 lg:w-1/3 w-full">
+              <ImageCarousel />
+            </div>
           </div>
         </div>
       </section>
@@ -384,7 +381,7 @@ const AboutUs: React.FC = () => {
       {/* Our Team Section */}
       <OurTeam />
 
-      <Footer/>
+      <Footer />
     </>
   );
 };
