@@ -63,7 +63,7 @@ const MissionPanel: React.FC<MissionPanelProps> = ({
   altText = "",
 }) => (
   <article
-    className="flex flex-col gap-6 items-start p-8 rounded-xl border border-neutral-200 shadow-lg w-[400px] h-[580px] max-md:w-full max-md:h-auto max-sm:gap-4 max-sm:p-6 hover:shadow-xl transition-shadow duration-300"
+    className="flex flex-col gap-6 items-start p-8 rounded-xl border border-neutral-200 shadow-lg w-full max-w-[400px] sm:w-[80%] md:w-[45%] lg:w-[30%] max-sm:gap-4 max-sm:p-6 hover:shadow-xl transition-shadow duration-300"
     style={{ backgroundColor: "#FAF9F6" }}
   >
     <img
@@ -93,6 +93,7 @@ const MissionPanel: React.FC<MissionPanelProps> = ({
     </div>
   </article>
 );
+
 
 const MissionStatement: React.FC = () => {
   const missionPanels = [
@@ -125,7 +126,7 @@ const MissionStatement: React.FC = () => {
       style={{ backgroundColor: "#FAF9F6" }}
     >
       <MissionHeader />
-      <div className="flex flex-wrap justify-center gap-8 mt-12 max-w-[1440px] mx-auto">
+      <div className="flex flex-wrap justify-center gap-8 mt-12 w-full max-w-[1440px] mx-auto">
         {missionPanels.map((panel, index) => (
           <MissionPanel
             key={index}
@@ -155,10 +156,11 @@ const TeamCard: React.FC<TeamCardProps> = ({
   role,
   altText = "",
 }) => (
-  <article
-    className="box-border flex flex-col items-center gap-6 p-6 border border-neutral-200 rounded-xl shadow-md h-[380px] w-[320px] max-md:w-[280px] hover:shadow-lg transition-shadow duration-300"
-    style={{ backgroundColor: "#FAF9F6" }}
-  >
+<article
+  className="box-border flex flex-col items-center gap-6 p-6 border border-neutral-200 rounded-xl shadow-md h-[380px] w-[320px] max-md:w-[280px] max-sm:w-full max-sm:max-w-[320px] hover:shadow-lg transition-shadow duration-300"
+  style={{ backgroundColor: "#FAF9F6" }}
+>
+
     <img
       src={imageUrl}
       alt={altText}
@@ -215,7 +217,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ title, members }) => {
             key={index}
             className={`flex flex-wrap gap-6 w-full ${
               group.length === chunkSize ? "justify-between" : "justify-around"
-            }`}
+            } max-md:justify-center`}
           >
             {group.map((member) => (
               <TeamCard key={member.id} {...member} />
@@ -294,7 +296,8 @@ const ImageCarousel: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full h-[300px] rounded-lg overflow-hidden shadow-lg">
+<div className="relative w-full h-[300px] max-md:h-[240px] max-sm:h-[200px] rounded-lg overflow-hidden shadow-lg">
+
       <img
         key={currentIndex}
         src={images[currentIndex]}
