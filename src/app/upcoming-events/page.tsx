@@ -80,7 +80,7 @@ const UpcomingEvents: React.FC = () => {
       <div className="relative w-full h-[500px] sm:h-[600px] lg:h-[719px]">
         {/* Background Image */}
         <Image
-          src="/images/fall-retreat-banner.jpg"
+          src="/images/beachday.jpg"
           alt="Hero background"
           fill
           className="object-cover"
