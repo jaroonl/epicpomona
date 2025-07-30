@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Component design variables */
+  --Static-Label-Large-Font: Roboto;
+  --Static-Label-Large-Size: 14px;
+  --Static-Label-Large-Line-Height: 20px;
+  --Static-Label-Large-Tracking: 0.1px;
+  --M3-sys-light-on-primary: #FFF;
+  --sds-size-space-300: 12px;
+  --sds-size-space-200: 8px;
+  --sds-size-radius-200: 8px;
+  --sds-color-border-brand-default: rgba(44, 44, 44, 1);
+  --sds-color-text-brand-on-brand: rgba(245, 245, 245, 1);
 }
 
 @theme inline {
@@ -23,4 +36,16 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-roboto {
+  font-family: 'Roboto', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.font-outfit {
+  font-family: 'Outfit', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', -apple-system, Roboto, Helvetica, sans-serif;
 }
