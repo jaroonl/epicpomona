@@ -1,9 +1,10 @@
 "use client";
 import * as React from "react";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 function Header() {
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -13,6 +14,7 @@ function Header() {
   const navigationItems = [
     {
       label: "About Us",
+      href: "/AboutUs",
       items: [
         { label: "Our Mission", href: "#mission" },
         { label: "Leadership Team", href: "#leadership" },
@@ -21,6 +23,7 @@ function Header() {
     },
     {
       label: "Local Churches",
+      href: "/LocalChurches",
       items: [
         { label: "Find a Church", href: "#find-church" },
         { label: "Church Directory", href: "#directory" },
@@ -29,6 +32,7 @@ function Header() {
     },
     {
       label: "Upcoming Events",
+      href: "/UpcomingEvents",
       items: [
         { label: "Community Gatherings", href: "#gatherings" },
         { label: "Workshops & Training", href: "#workshops" },
@@ -37,6 +41,7 @@ function Header() {
     },
     {
       label: "Resources",
+      href: "/Resources",
       items: [
         { label: "Study Materials", href: "#study" },
         { label: "Prayer Requests", href: "#prayer" },
@@ -45,7 +50,7 @@ function Header() {
     }
   ];
 
-  const handleMouseEnter = (index) => {
+  const handleMouseEnter = (index: number) => {
     setActiveDropdown(index);
   };
 
@@ -219,7 +224,7 @@ function Header() {
       <div className="flex flex-col items-center font-outfit text-2xl text-[rgba(250,249,246,1)] font-semibold">
         <div className="flex w-full max-w-[1152px] items-center justify-between px-6 lg:px-8">
           {/* Logo Section */}
-          <div className="bg-transparent flex py-[20px] items-center gap-4 overflow-hidden whitespace-nowrap leading-7 flex-shrink-0 cursor-pointer logo-hover">
+          <Link href="/" className="bg-transparent flex py-[20px] items-center gap-4 overflow-hidden whitespace-nowrap leading-7 flex-shrink-0 logo-hover">
             <div className="relative logo-wiggle">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/d1daca73f69a00c6e5e7a1a1332fb96ee50bc9c7?placeholderIfAbsent=true"
@@ -228,14 +233,11 @@ function Header() {
               />
             </div>
             <div className="leading-7 tracking-wide logo-text">
-              <span className="block text-2xl font-bold logo-epic cursor-pointer">
-                Epic Movement
-              </span>
-              <span className="block text-lg font-medium opacity-90 logo-pomona cursor-pointer">
-                POMONA
-              </span>
+              <span className="block text-2xl font-bold logo-epic">Epic Movement</span>
+              <span className="block text-lg font-medium opacity-90 logo-pomona">POMONA</span>
             </div>
-          </div>
+          </Link>
+
 
           {/* Navigation Section */}
           <nav className="flex items-center gap-1 leading-none justify-end flex-shrink-0">
@@ -252,9 +254,10 @@ function Header() {
                     aria-haspopup="true"
                     aria-expanded={activeDropdown === index}
                   >
-                    <span className="relative underline-expand">
-                      {navItem.label}
-                    </span>
+                  <Link href={navItem.href} className="relative underline-expand">
+                    {navItem.label}
+                  </Link>
+
                     <svg
                       className={`ml-2 w-4 h-4 chevron ${activeDropdown === index ? 'rotate' : ''}`}
                       fill="none"
@@ -271,13 +274,13 @@ function Header() {
                       <div className="py-2">
                         {navItem.items.map((item, itemIndex) => {
                           return (
-                            <a
+                            <Link
                               key={itemIndex}
                               href={item.href}
                               className="block px-6 py-3 text-base font-medium text-[rgba(250,249,246,0.9)] hover:text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] border-l-4 border-transparent hover:border-[rgba(250,249,246,0.5)] dropdown-item stagger-item"
                             >
                               {item.label}
-                            </a>
+                            </Link>
                           );
                         })}
                       </div>
