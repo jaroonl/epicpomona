@@ -13,7 +13,7 @@ const regularEvents: Event[] = [
     id: "1",
     title: "Ministry Fair",
     description:
-      "Lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve",
+      "Join us for an exciting broomball tournament! A fun way to connect with fellow students.",
     image: "/images/ministryfair.png",
     location: "3801 W Temple Ave",
     time: "7:00 PM",
@@ -39,7 +39,7 @@ const regularEvents: Event[] = [
     id: "4",
     title: "Praise and Prayer Night",
     description:
-      "Show us Chriiiiiist, show us ChriiiiiIIIIIIIIist, o God reveal your gloorryyy, through the preaching of your word.",
+      "Join us for a fun Halloween outreach event serving our local community with treats and games.",
     image: "/images/praiseandprayer.png",
     location: "3801 W Temple Ave",
     time: "5:00 PM",
@@ -52,7 +52,7 @@ const regularEvents: Event[] = [
     id: "5",
     title: "Park Day",
     description:
-      "Relax and unwind with friends while playing sports and hanging out.",
+      "Relax and unwind with friends while watching a great film together with popcorn and snacks.",
     image: "/images/parkday.png",
     location: "3801 W Temple Ave",
     time: "8:00 PM",
@@ -83,7 +83,7 @@ const retreats: Event[] = [
     description:
       "A weekend getaway for spiritual growth, fellowship, and unforgettable memories.",
     image: "/images/fallretreat.png",
-    location: "The Woods",
+    location: "3801 W Temple Ave",
     time: "6:00 PM",
     day: "Friday",
     date: "Nov 22",
@@ -97,7 +97,7 @@ const retreats: Event[] = [
     description:
       "A winter getaway focused on spiritual growth and community building in a beautiful mountain setting.",
     image: "/images/winter-conference.png",
-    location: "Joe Mama's",
+    location: "Mountain Resort",
     time: "4:00 PM",
     day: "Friday",
     date: "Jan 17",
@@ -111,7 +111,7 @@ const retreats: Event[] = [
     description:
       "Celebrate renewal and growth with a spring retreat focused on fresh beginnings and spiritual revival.",
     image: "/images/sbt.png",
-    location: "Jaron's Basement",
+    location: "Lakeside Camp",
     time: "5:00 PM",
     day: "Friday",
     date: "Mar 21",
@@ -123,6 +123,7 @@ const retreats: Event[] = [
 
 const UpcomingEvents: React.FC = () => {
   // Animation hooks for different sections
+  const [heroRef, heroVisible] = useScrollAnimation({ threshold: 0.3 });
   const [featuredRef, featuredVisible] = useScrollAnimation({ threshold: 0.3 });
   const [eventsHeaderRef, eventsHeaderVisible] = useScrollAnimation({ threshold: 0.5 });
   const [retreatsHeaderRef, retreatsHeaderVisible] = useScrollAnimation({ threshold: 0.5 });
@@ -147,8 +148,8 @@ const UpcomingEvents: React.FC = () => {
         <div className="absolute inset-0 bg-[#D9D9D9] opacity-69"></div>
 
         {/* Hero Content */}
-        <div className="absolute inset-0 flex justify-center items-center px-4">
-          <h1 className="text-[#1D2046] font-[Outfit] text-[48px] sm:text-[64px] lg:text-[80px] font-bold leading-[110%] text-center capitalize">
+        <div ref={heroRef} className="absolute inset-0 flex justify-center items-center px-4">
+          <h1 className={`text-[#1D2046] font-[Outfit] text-[48px] sm:text-[64px] lg:text-[80px] font-bold leading-[110%] text-center capitalize hero-content-animate ${heroVisible ? 'visible' : ''}`}>
             UPCOMING
             <br />
             EVENTS
