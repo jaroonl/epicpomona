@@ -183,7 +183,7 @@ export default function EventCard({ event }: EventCardProps) {
                   rel="noopener noreferrer"
                   className="discord-link"
                 >
-                 Join our Discord for More Info →
+                  Join our Discord for More Info →
                 </a>
               </div>
             )}
@@ -300,7 +300,7 @@ export default function EventCard({ event }: EventCardProps) {
           align-self: stretch;
           color: #1d2046;
           font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: clamp(24px, 6vw, 30px);
+          font-size: clamp(24px, 6vw, 25px);
           font-style: normal;
           font-weight: 600;
           line-height: 110%;
@@ -312,18 +312,18 @@ export default function EventCard({ event }: EventCardProps) {
           align-self: stretch;
           color: #1d2046;
           font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: clamp(11px, 2.5vw, 12px);
+          font-size: clamp(12px, 2.5vw, 17px);
           font-style: normal;
           font-weight: 300;
           line-height: 120%;
           margin: 0;
-          flex-grow: 1;
+          flex-grow: 0;
         }
 
         .card-footer {
           display: flex;
           justify-content: space-between;
-          align-items: flex-start;
+          align-items: center;
           align-self: stretch;
           margin-top: auto;
         }
@@ -353,7 +353,7 @@ export default function EventCard({ event }: EventCardProps) {
         .info-text {
           color: #1d2046;
           font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: clamp(10px, 2.5vw, 12px);
+          font-size: clamp(10px, 2.5vw, 17px);
           font-style: normal;
           font-weight: 300;
           line-height: 120%;
@@ -369,9 +369,10 @@ export default function EventCard({ event }: EventCardProps) {
 
         .action-button,
         .back-button {
+          box-sizing: border-box;
           display: flex;
-          width: 38px;
-          height: 34px;
+          width: 44px;
+          height: 44px;
           padding: 10px 12px;
           justify-content: center;
           align-items: center;
@@ -382,6 +383,7 @@ export default function EventCard({ event }: EventCardProps) {
           cursor: pointer;
           flex-shrink: 0;
           transition: background-color 0.2s ease;
+        
         }
 
         .action-button:hover,
@@ -448,7 +450,7 @@ export default function EventCard({ event }: EventCardProps) {
         .info-content {
           color: #1d2046;
           font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: clamp(9px, 2.2vw, 10px);
+          font-size: clamp(9px, 2.2vw, 17px);
           font-weight: 300;
           line-height: 130%;
           margin: 0;
@@ -460,7 +462,7 @@ export default function EventCard({ event }: EventCardProps) {
           gap: 4px;
           color: #0093d0;
           font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: clamp(10px, 2.5vw, 12px);
+          font-size: clamp(15px, 2.5vw, 17px);
           font-weight: 600;
           text-decoration: none;
           border: 1px solid #0093d0;
@@ -482,7 +484,7 @@ export default function EventCard({ event }: EventCardProps) {
           gap: 4px;
           color: #5865F2;
           font-family: Outfit, -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: clamp(10px, 2.5vw, 12px);
+          font-size: clamp(15px, 2.5vw, 17px);
           font-weight: 600;
           text-decoration: none;
           border: 1px solid #5865F2;
@@ -504,45 +506,66 @@ export default function EventCard({ event }: EventCardProps) {
         @media (max-width: 640px) {
           .card-wrapper {
             width: 100%;
-            max-width: 280px;
+            max-width: 360px;
+            min-height: 520px;
             margin: 0 auto;
           }
 
           .card-front {
-            padding: 16px;
-            gap: 12px;
+            padding: 14px;
+            gap: 10px;
           }
 
           .card-back {
-            padding: 16px;
+            padding: 14px;
           }
 
+          .card-side {
+            min-height: 520px;
+            overflow: hidden;
+          } 
+
           .card-details {
-            gap: 6px;
+            gap: 4px;
+          }
+
+          .card-content {
+            gap: 8px;
           }
 
           .card-footer {
-            gap: 12px;
+            gap: 8px;
+            align-items: center;
+            margin-top: 6px;
           }
 
           .action-button,
           .back-button {
+            position: static;
             width: 36px;
-            height: 32px;
-            padding: 8px 10px;
+            height: 36px;
+            padding: 0px;
           }
 
           .card-back-info {
             gap: 6px;
           }
 
+          .card-description {
+            flex-grow: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+
           .info-title {
-            font-size: 10px;
+            font-size: 17px;
             letter-spacing: 0.2px;
           }
 
           .info-content {
-            font-size: 9px;
+            font-size: 15px;
             line-height: 125%;
           }
         }
@@ -551,7 +574,8 @@ export default function EventCard({ event }: EventCardProps) {
         @media (min-width: 641px) and (max-width: 1024px) {
           .card-wrapper {
             width: 100%;
-            max-width: 240px;
+            max-width: 300px;
+            min-height 500px;
             margin: 0 auto;
           }
         }

@@ -1,3 +1,9 @@
+{/* UPCOMING EVENTS PAGE
+    (MOST EDITS WILL BE ON THIS FILE)
+    - event cards
+    - retreat cards
+    - featured event banner */}
+
 "use client";
 
 import React from "react";
@@ -8,6 +14,7 @@ import Footer from "@/components/Footer";
 import { Event } from "@/types/events";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
+{/* event cards */ }
 const regularEvents: Event[] = [
   {
     id: "1",
@@ -15,7 +22,7 @@ const regularEvents: Event[] = [
     description:
       "Lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve",
     image: "/images/ministryfair.png",
-    location: "3801 W Temple Ave",
+    location: "Ursa Major C (BSC)",  // **ONLY list location if on campus. otherwise, state to join discord to see location** 
     time: "7:00 PM",
     day: "Friday",
     date: "Nov 15",
@@ -28,7 +35,7 @@ const regularEvents: Event[] = [
     description:
       "A special dinner event bringing students together around tables for community and conversation.",
     image: "/images/thanksmas.png",
-    location: "3801 W Temple Ave",
+    location: "Join Discord for Location",  // **ONLY list location if on campus. otherwise, state to join discord to see location**
     time: "6:30 PM",
     day: "Thursday",
     date: "Nov 21",
@@ -41,7 +48,7 @@ const regularEvents: Event[] = [
     description:
       "Show us Chriiiiiist, show us ChriiiiiIIIIIIIIist, o God reveal your gloorryyy, through the preaching of your word.",
     image: "/images/praiseandprayer.png",
-    location: "3801 W Temple Ave",
+    location: "Ursa Major C (BSC)",  // **ONLY list location if on campus. otherwise, state to join discord to see location**
     time: "5:00 PM",
     day: "Thursday",
     date: "Oct 31",
@@ -54,7 +61,7 @@ const regularEvents: Event[] = [
     description:
       "Relax and unwind with friends while playing sports and hanging out.",
     image: "/images/parkday.png",
-    location: "3801 W Temple Ave",
+    location: "Join Discord for Location",  // **ONLY list location if on campus. otherwise, state to join discord to see location**
     time: "8:00 PM",
     day: "Saturday",
     date: "Nov 9",
@@ -67,7 +74,7 @@ const regularEvents: Event[] = [
     description:
       "An evening dedicated to worship, prayer, and encountering God's presence together as a community.",
     image: "/images/worship.png",
-    location: "3801 W Temple Ave",
+    location: "Old Structure",  // **ONLY list location if on campus. otherwise, state to join discord to see location**
     time: "7:30 PM",
     day: "Wednesday",
     date: "Nov 13",
@@ -76,6 +83,7 @@ const regularEvents: Event[] = [
   },
 ];
 
+{/* retreat cards */ }
 const retreats: Event[] = [
   {
     id: "2",
@@ -156,31 +164,31 @@ const UpcomingEvents: React.FC = () => {
         </div>
       </div>
 
-{/* Featured Event Section */}
-<div ref={featuredRef} className={`relative w-full flex justify-center py-8 sm:py-12 lg:py-16 px-4 animate-scale-in ${featuredVisible ? 'visible' : ''}`}>
-  <div className="relative w-full max-w-[1152px]">
-    <Image
-      src="/images/fall-retreat-banner.jpg"
-      alt="Fall Retreat"
-      width={1152}
-      height={524}
-      className="w-[1152px] h-[524px] shadow-[0px_4px_34.9px_12px_rgba(0,0,0,0.25)] rounded-lg"
-    />
+      {/* Featured Event Section */}
+      <div ref={featuredRef} className={`relative w-full flex justify-center py-8 sm:py-12 lg:py-16 px-4 animate-scale-in ${featuredVisible ? 'visible' : ''}`}>
+        <div className="relative w-full aspect-[1152/524] lg:w-[1152px] lg:h-[524px] rounded-lg shadow-[0px_4px_34.9px_12px_rgba(0,0,0,0.25)] overflow-hidden">
+          <Image
+            src="/images/fall-retreat-banner.jpg"
+            alt="Fall Retreat"
+            fill
+            className="object-cover"
+            priority
+          />
 
-    {/* Tint overlay */}
-    <div className="absolute inset-0 bg-[#D9D9D9] opacity-10"></div>
+          {/* Tint overlay */}
+          <div className="absolute inset-0 bg-[#D9D9D9] opacity-10"></div>
 
-    {/* Centered Featured Event Text */}
-    <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-      <p className={`text-[#0093D0] font-[Outfit] text-[14px] sm:text-[16px] lg:text-[20px] font-normal leading-[110%] capitalize mb-1 sm:mb-2 animate-fade-in ${featuredVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
-        FEATURED EVENT
-      </p>
-      <h2 className={`text-black font-[Outfit] text-[20px] sm:text-[26px] lg:text-[50px] font-bold leading-[110%] capitalize animate-fade-in ${featuredVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.6s' }}>
-        FALL RETREAT
-      </h2>
-    </div>
-  </div>
-</div>
+          {/* Centered Featured Event Text */}
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+            <p className={`text-[#0093D0] font-[Outfit] text-[14px] sm:text-[16px] lg:text-[20px] font-normal leading-[110%] capitalize mb-1 sm:mb-2 animate-fade-in ${featuredVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
+              FEATURED EVENT
+            </p>
+            <h2 className={`text-black font-[Outfit] text-[20px] sm:text-[26px] lg:text-[50px] font-bold leading-[110%] capitalize animate-fade-in ${featuredVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.6s' }}>
+              FALL RETREAT
+            </h2>
+          </div>
+        </div>
+      </div>
 
 
       {/* Events Section */}

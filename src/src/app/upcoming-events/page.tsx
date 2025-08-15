@@ -157,31 +157,31 @@ const UpcomingEvents: React.FC = () => {
         </div>
       </div>
 
-{/* Featured Event Section */}
-<div ref={featuredRef} className={`relative w-full flex justify-center py-8 sm:py-12 lg:py-16 px-4 animate-scale-in ${featuredVisible ? 'visible' : ''}`}>
-  <div className="relative w-full max-w-[1152px]">
-    <Image
-      src="/images/fall-retreat-banner.jpg"
-      alt="Fall Retreat"
-      width={1152}
-      height={524}
-      className="w-[1152px] h-[524px] shadow-[0px_4px_34.9px_12px_rgba(0,0,0,0.25)] rounded-lg"
-    />
+      {/* Featured Event Section */}
+      <div ref={featuredRef} className={`relative w-full flex justify-center py-8 sm:py-12 lg:py-16 px-4 animate-scale-in ${featuredVisible ? 'visible' : ''}`}>
+        <div className="relative w-full max-w-[1152px]">
+          <Image
+            src="/images/fall-retreat-banner.jpg"
+            alt="Fall Retreat"
+            width={1152}
+            height={524}
+            className="w-[1152px] h-[524px] shadow-[0px_4px_34.9px_12px_rgba(0,0,0,0.25)] rounded-lg"
+          />
 
-    {/* Tint overlay */}
-    <div className="absolute inset-0 bg-[#D9D9D9] opacity-10"></div>
+          {/* Tint overlay */}
+          <div className="absolute inset-0 bg-[#D9D9D9] opacity-10"></div>
 
-    {/* Centered Featured Event Text */}
-    <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-      <p className={`text-[#0093D0] font-[Outfit] text-[14px] sm:text-[16px] lg:text-[20px] font-normal leading-[110%] capitalize mb-1 sm:mb-2 animate-fade-in ${featuredVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
-        FEATURED EVENT
-      </p>
-      <h2 className={`text-black font-[Outfit] text-[20px] sm:text-[26px] lg:text-[50px] font-bold leading-[110%] capitalize animate-fade-in ${featuredVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.6s' }}>
-        FALL RETREAT
-      </h2>
-    </div>
-  </div>
-</div>
+          {/* Centered Featured Event Text */}
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+            <p className={`text-[#0093D0] font-[Outfit] text-[14px] sm:text-[16px] lg:text-[20px] font-normal leading-[110%] capitalize mb-1 sm:mb-2 animate-fade-in ${featuredVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
+              FEATURED EVENT
+            </p>
+            <h2 className={`text-black font-[Outfit] text-[20px] sm:text-[26px] lg:text-[50px] font-bold leading-[110%] capitalize animate-fade-in ${featuredVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.6s' }}>
+              FALL RETREAT
+            </h2>
+          </div>
+        </div>
+      </div>
 
 
       {/* Events Section */}
