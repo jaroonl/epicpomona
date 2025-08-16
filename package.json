@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@tabler/icons-react": "^3.34.0",
+    "lucide-react": "^0.539.0",
     "motion": "^12.19.1",
     "next": "15.3.2",
     "react": "^19.0.0",
