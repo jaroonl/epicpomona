@@ -51,14 +51,17 @@ function Header() {
     }
   ];
 
+  const toHref = (base: string, child: string) =>
+    child.startsWith("#") ? `${base}${child}` : child;
+
   const handleMouseEnter = (index:number) => {
-    if (window.innerWidth >= 1024) { // Only enable hover on desktop
+    if (window.innerWidth >= 1024) {
       setActiveDropdown(index);
     }
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth >= 1024) { // Only enable hover on desktop
+    if (window.innerWidth >= 1024) {
       setActiveDropdown(null);
     }
   };
@@ -328,25 +331,36 @@ function Header() {
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <button
-                      className="px-4 py-4 rounded-lg hover:bg-[rgba(250,249,246,0.1)] focus:outline-none focus:ring-2 focus:ring-[rgba(250,249,246,0.3)] whitespace-nowrap cursor-pointer flex items-center text-base nav-item"
-                      aria-haspopup="true"
-                      aria-expanded={activeDropdown === index}
-                    >
-                      <Link href={navItem.href} className="relative underline-expand">
-                        {navItem.label}
-                      </Link>
-                      <svg
-                        className={`ml-2 w-4 h-4 chevron ${activeDropdown === index ? 'rotate' : ''}`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                    <div className="flex items-center">
+                      <Link
+                        href={navItem.href}
+                        className="px-4 py-4 rounded-lg hover:bg-[rgba(250,249,246,0.1)] nav-item"
+                        onClick={() => setActiveDropdown(null)}
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
+                        <span className="relative underline-expand">
+                          {navItem.label}
+                        </span>
+                      </Link>
+                      <button
+                        type="button"
+                        className="px-1 py-4"
+                        aria-haspopup="true"
+                        aria-expanded={activeDropdown === index}
+                        onClick={() =>
+                          setActiveDropdown(activeDropdown === index ? null : index)
+                        }
+                      >
+                        <svg
+                          className={`ml-2 w-4 h-4 chevron ${activeDropdown === index ? 'rotate' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                    </div>
 
-                    {/* Desktop Dropdown Menu */}
                     {activeDropdown === index && (
                       <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-[rgba(29,32,70,0.98)] backdrop-blur-sm rounded-lg shadow-xl border border-[rgba(250,249,246,0.1)] dropdown-menu">
                         <div className="py-2">
@@ -354,8 +368,9 @@ function Header() {
                             return (
                               <Link
                                 key={itemIndex}
-                                href={item.href}
+                                href={toHref(navItem.href, item.href)}
                                 className="block px-6 py-3 text-base font-medium text-[rgba(250,249,246,0.9)] hover:text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] border-l-4 border-transparent hover:border-[rgba(250,249,246,0.5)] dropdown-item stagger-item"
+                                onClick={() => setActiveDropdown(null)}
                               >
                                 {item.label}
                               </Link>
@@ -363,7 +378,6 @@ function Header() {
                           })}
                         </div>
                         
-                        {/* Dropdown arrow */}
                         <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[rgba(29,32,70,0.98)] border-l border-t border-[rgba(250,249,246,0.1)] rotate-45 dropdown-arrow" />
                       </div>
                     )}
@@ -386,11 +400,9 @@ function Header() {
           </div>
         </div>
         
-        {/* Bottom border */}
         <div className="h-px bg-[rgba(250,249,246,0.2)] bottom-border" />
       </header>
 
-      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
@@ -398,12 +410,10 @@ function Header() {
         />
       )}
 
-      {/* Mobile Menu */}
       <div className={`fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-[rgba(29,32,70,0.98)] backdrop-blur-md z-50 transform transition-transform duration-300 ease-out lg:hidden mobile-menu ${
         isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         <div className="flex flex-col h-full">
-          {/* Mobile Menu Header */}
           <div className="flex items-center justify-between p-6 border-b border-[rgba(250,249,246,0.1)]">
             <h2 className="text-xl font-bold text-[rgba(250,249,246,1)] font-outfit">Menu</h2>
             <button
@@ -417,38 +427,45 @@ function Header() {
             </button>
           </div>
 
-          {/* Mobile Navigation */}
           <nav className="flex-1 overflow-y-auto py-4">
             {navigationItems.map((navItem, index) => (
               <div key={index} className="mobile-nav-item">
-                <button
-                  onClick={() => toggleMobileDropdown(index)}
-                  className="w-full flex items-center justify-between px-6 py-4 text-left text-lg font-medium text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] transition-colors font-outfit"
-                  aria-expanded={activeDropdown === index}
-                >
-                  <span>{navItem.label}</span>
-                  <svg
-                    className={`w-5 h-5 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180' : ''}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                <div className="w-full flex items-center justify-between px-6 py-4 text-left text-lg font-medium text-[rgba(250,249,246,1)]">
+                  <Link
+                    href={navItem.href}
+                    onClick={closeMobileMenu}
+                    className="pr-3"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
+                    {navItem.label}
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => toggleMobileDropdown(index)}
+                    aria-expanded={activeDropdown === index}
+                    className="p-2 rounded hover:bg-[rgba(250,249,246,0.1)]"
+                  >
+                    <svg
+                      className={`w-5 h-5 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                </div>
 
-                {/* Mobile Dropdown */}
                 {activeDropdown === index && (
                   <div className="bg-[rgba(0,0,0,0.2)] border-t border-[rgba(250,249,246,0.1)]">
                     {navItem.items.map((item, itemIndex) => (
-                      <a
+                      <Link
                         key={itemIndex}
-                        href={item.href}
+                        href={toHref(navItem.href, item.href)}
                         onClick={closeMobileMenu}
-                        className="block px-8 py-3 text-base text-[rgba(250,249,246,0.8)] hover:text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] transition-colors border-l-4 border-transparent hover:border-[rgba(250,249,246,0.5)] font-outfit"
+                        className="block px-8 py-3 text-base text[rgba(250,249,246,0.8)] hover:text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] transition-colors border-l-4 border-transparent hover:border-[rgba(250,249,246,0.5)] font-outfit"
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
