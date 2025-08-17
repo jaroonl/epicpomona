@@ -3,6 +3,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --sds-size-space-800: 32px;
+  --sds-size-space-400: 16px;
+  --sds-color-border-default-secondary: rgba(117, 117, 117, 1);
+  --sds-size-space-150: 6px;
+  --sds-size-space-300: 12px;
+  --sds-color-text-neutral-on-neutral: rgba(243, 243, 243, 1);
+  --Static-Label-Large-Font: Roboto;
+  --Static-Label-Large-Size: 14px;
+  --Static-Label-Large-Line-Height: 20px;
+  --Static-Label-Large-Tracking: 0.1px;
+  --M3-sys-light-on-primary: #FFF;
+  --sds-size-space-300: 12px;
+  --sds-size-space-200: 8px;
+  --sds-size-radius-200: 8px;
+  --sds-color-border-brand-default: rgba(44, 44, 44, 1);
+  --sds-color-text-brand-on-brand: rgba(245, 245, 245, 1);
 }
 
 @theme inline {
@@ -24,4 +40,118 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+.font-roboto {
+  font-family: 'Roboto', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.font-outfit {
+  font-family: 'Outfit', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+/* Scroll Animation Classes */
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.animate-fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-in {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.animate-fade-in.visible {
+  opacity: 1;
+}
+
+.animate-slide-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.animate-slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-slide-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.animate-slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.animate-scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.animate-stagger {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.animate-stagger.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section divider animations */
+.section-divider {
+  opacity: 0;
+  transform: scaleX(0);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+  transform-origin: center;
+}
+
+.section-divider.visible {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.section-title {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+  will-change: opacity, transform;
+}
+
+.section-title.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

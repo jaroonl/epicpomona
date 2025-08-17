@@ -100,21 +100,21 @@ const MissionStatement: React.FC = () => {
     {
       number: "01",
       title: "invite",
-      image: "./AboutMeImages/LargeGroup.png",
+      image: "./images/LargeGroup.png",
       description:
         "We invite Asian American students and communities to come and see who Jesus is and his mission given to each of us. (Luke 14:15-24, Isaiah 55:1-2)",
     },
     {
       number: "02",
       title: "integrate",
-      image: "./AboutMeImages/Tabling.jpg",
+      image: "./images/Tabling.jpg",
       description:
         "We integrate our faith in every area of our lives, helping each other grow, multiply and build on God's faith in us.",
     },
     {
       number: "03",
       title: "send",
-      image: "./AboutMeImages/SanDiego.png",
+      image: "./images/SanDiego.png",
       description:
         "We send disciples to reach the world for Christ, empowering them to make disciples who make disciples in every nation and culture.",
     },
@@ -264,15 +264,15 @@ const OurTeam: React.FC = () => {
 /* ====== ABOUT US MAIN COMPONENT ====== */
 
 const images = [
-  "/AboutMeImages/abmecarousel1.jpg",
-  "/AboutMeImages/abmecarousel2.jpg",
-  "/AboutMeImages/abmecarousel3.jpg",
-  "/AboutMeImages/abmecarousel4.jpg",
-  "/AboutMeImages/abmecarousel5.jpg",
-  "/AboutMeImages/abmecarousel6.jpg",
-  "/AboutMeImages/abmecarousel7.jpg",
-  "/AboutMeImages/abmecarousel8.jpg",
-  "/AboutMeImages/abmecarousel9.jpg",
+  "/images/abmecarousel1.jpg",
+  "/images/abmecarousel2.jpg",
+  "/images/abmecarousel3.jpg",
+  "/images/abmecarousel4.jpg",
+  "/images/abmecarousel5.jpg",
+  "/images/abmecarousel6.jpg",
+  "/images/abmecarousel7.jpg",
+  "/images/abmecarousel8.jpg",
+  "/images/abmecarousel9.jpg",
 ];
 
 const ImageCarousel: React.FC = () => {

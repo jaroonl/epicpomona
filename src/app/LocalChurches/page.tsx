@@ -1,4 +1,4 @@
-import ChurchCard from "./ChurchCard";
+import ChurchCard from "../../components/ChurchCard";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import "./LCStyling.css";
@@ -75,11 +75,14 @@ export default function LocalChurches() {
 
         {/* Church Ride Button */}
         <div className="cta-section">
-          <button className="church-ride-button">
-            CHURCH RIDE SIGN UP
-          </button>
+          <a href="https://forms.gle/KBwBScj9r9M2acWR6" target="_blank" rel="noopener noreferrer">
+            <button className="church-ride-button">
+              CHURCH RIDE SIGN UP
+            </button>
+          </a>
         </div>
 
+        
         {/* Local Churches Section */}
         <section className="churches-section">
           <div className="container-responsive">
@@ -88,11 +91,14 @@ export default function LocalChurches() {
             {/* Church Cards */}
             <div className="church-cards-container">
               <ChurchCard
-                name="first Chinese Baptist Church Walnut"
+                name="First Chinese Baptist Church Walnut"
                 location="1555 Fairway Dr,
 Walnut, CA 91789"
                 time="10:45 AM - 12:00 PM"
                 image="https://cdn.builder.io/api/v1/image/assets/TEMP/178366c59e2e239a0d2becf1d470d197e231fd16?width=550"
+                locationLink="https://maps.app.goo.gl/757uG9VJ3kEnsEG37"
+                ministryInfo="TURF(Ministry): first three Fridays, 7:30-10:00 pm"
+                ministryWebsite="https://english.fcbcwalnut.org/"
               />
 
               <ChurchCard
@@ -101,13 +107,19 @@ Walnut, CA 91789"
 Walnut, CA 91789"
                 time="11:15 AM"
                 image="https://cdn.builder.io/api/v1/image/assets/TEMP/f905a38fcea856df90351efe41adff05f16beba1?width=550"
+                locationLink="https://maps.app.goo.gl/vHbdZvZtj7X7uxYp9"
+                ministryInfo=""
+                ministryWebsite="https://www.anchor.community/"
               />
 
               <ChurchCard
                 name="Crossway Community Church"
-                location="975 W Imperial Highway Suite 150Brea, CA 92821"
-                time="10:30"
+                location="975 W Imperial Highway Suite 150 Brea, CA 92821"
+                time="10:30 AM"
                 image="https://cdn.builder.io/api/v1/image/assets/TEMP/fb5e71c86a7153cb7ebdacbcb5377c066e9b7af4?width=550"
+                locationLink="https://maps.app.goo.gl/pjgMVhiUsjv6t2Rg7"
+                ministryInfo="TWO:FORTYTWO (College & Young Adult Ministry): Fridays, 7:30-10:00 pm"
+                ministryWebsite="https://crosswayoc.com/"
               />
             </div>
           </div>
@@ -115,17 +127,21 @@ Walnut, CA 91789"
 
         {/* Google Maps Button */}
         <div className="maps-section">
-          <button className="google-maps-button">
-            GOOGLE MAPS
-          </button>
+          <a href="https://maps.app.goo.gl/pknMMkb7Jnb33cjF7" target="_blank" rel="noopener noreferrer">
+            <button className="google-maps-button">
+              GOOGLE MAPS
+            </button>
+          </a>
         </div>
+
+        
 
         {/* Map */}
         <section className="map-section">
           <div className="container-responsive">
             <img
               className="map-image"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/550a0c997beae7aa1ffb3365b000b133199b5669?width=1304"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/a079436eeb47d286b5ef8c0d313d6cfc52c21f63?width=1276"
               alt="Map showing local church locations"
             />
           </div>

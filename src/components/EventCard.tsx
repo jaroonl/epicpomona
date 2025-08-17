@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Event } from "./Events";
+import { Event } from "../app/UpcomingEvents/Events";
 
 interface EventCardProps {
   event: Event;
