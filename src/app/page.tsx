@@ -9,7 +9,6 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Header />
-            <AboutMePage />
       <Hero />
       <section className="py-16 bg-white">
         <WeeklySchedule />

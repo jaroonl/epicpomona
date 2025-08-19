@@ -5,12 +5,20 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 function Hero() {
   const [currentSlide, setCurrentSlide] = React.useState(0);
 
-  // Define different backgrounds for each slide
+  // Define slides with actual photos
   const slides = [
-    "bg-gradient-to-br from-slate-100 via-slate-300 to-slate-500",
-    "bg-gradient-to-br from-blue-100 via-blue-300 to-blue-500",
-    "bg-gradient-to-br from-purple-100 via-purple-300 to-purple-500",
-    "bg-gradient-to-br from-green-100 via-green-300 to-green-500"
+    {
+      image: "sbt-group.jpg"
+    },
+    {
+      image: "sad-group.jpg"
+    },
+    {
+      image: "thanksmas.jpg", 
+    },
+    {
+      image: "wincon-25.jpg"
+    }
   ];
 
   const totalSlides = slides.length;
@@ -39,16 +47,25 @@ function Hero() {
   }, [totalSlides]);
 
   return (
-    <div className="relative w-full h-[720px] overflow-hidden flex items-center justify-center lg:h-[712px] md:h-[500px] sm:h-[400px]">
+    <div className="relative w-full h-[720px] overflow-hidden flex items-center justify-center lg:h-[698px] md:h-[500px] sm:h-[400px]">
       {/* Background Images Container */}
       <div className="absolute top-0 left-0 w-full h-full">
-        {slides.map((slideBackground, index) => (
+        {slides.map((slide, index) => (
           <div
             key={index}
             className={`w-full h-full absolute top-0 left-0 transition-opacity duration-1000 ease-in-out ${
               index === currentSlide ? 'opacity-100' : 'opacity-0'
-            } ${slideBackground}`}
-          />
+            }`}
+          >
+            <img
+              src={slide.image}
+              alt={slide.alt}
+              className="w-full h-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+            {/* Optional: Dark overlay for better text readability */}
+            <div className="absolute inset-0 bg-black/30" />
+          </div>
         ))}
       </div>
 
@@ -87,9 +104,9 @@ function Hero() {
 
       {/* Main Title */}
       <div className="absolute top-[180px] left-1/2 transform -translate-x-1/2 w-[502px] h-[297px] text-center font-outfit text-[80px] font-bold leading-[110%] capitalize z-10 lg:top-[180px] lg:text-[80px] lg:w-[502px] lg:h-[297px] md:top-[140px] md:text-[55px] md:w-[400px] md:h-[200px] sm:top-[100px] sm:text-[36px] sm:w-[300px] sm:h-[150px] sm:leading-[100%]">
-        <span className="text-[#0093D0] sm:my-[5px] block">INVITE</span>
-        <span className="text-[#1D2046] sm:my-[5px] block">INTEGRATE</span>
-        <span className="text-[#0093D0] sm:my-[5px] block">SEND</span>
+        <span className="text-[#0093D0] sm:my-[5px] block drop-shadow-lg">INVITE</span>
+        <span className="text-[#1D2046] sm:my-[5px] block drop-shadow-lg">INTEGRATE</span>
+        <span className="text-[#0093D0] sm:my-[5px] block drop-shadow-lg">SEND</span>
       </div>
 
       {/* CTA Button */}
@@ -102,7 +119,7 @@ function Hero() {
             viewBox="0 0 247 63"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full"
+            className="w-full h-full drop-shadow-lg"
           >
             <path
               d="M0 31.5C0 14.103 14.103 0 31.5 0H215.5C232.897 0 247 14.103 247 31.5C247 48.897 232.897 63 215.5 63H31.5C14.103 63 0 48.897 0 31.5Z"

@@ -5,37 +5,37 @@ import ScheduleCard from "./ScheduleCard";
 function WeeklySchedule() {
   const scheduleData = [
     {
-      image: "https://placehold.co/295x297/e8e8e8/e8e8e8",
+      image: "bible-study.png",
       title: "Bible Study",
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Mauris Ut Tellus Ultrices A Habitant Vitae At.",
-      location: "3801 W Temple Ave",
+        "For women: please message a Bible study leader to get the exact location!\n\nFirst Bible Study: 9/2/2025",
+      location: "Men's: BLDG 5 & Women's: Village\n3801 W Temple Ave\nPomona, CA 91768",
       day: "Tuesdays",
-      time: "7PM",
+      time: "7:00 PM",
     },
     {
-      image: "https://placehold.co/295x297/e8e8e8/e8e8e8",
+      image: "large-group.jpg",
       title: "Large Group",
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Mauris Ut Tellus Ultrices A Habitant Vitae At.",
-      location: "3801 W Temple Ave",
+        "Come join us for a time of fellowship and learning more about God!\n\nFirst Large Group: 8/28/25",
+      location: "EFree Church Diamond Bar\n3255 S Diamond Bar Blvd\nDiamond Bar, CA 91765",
       day: "Thursdays",
-      time: "7PM",
+      time: "7:00 PM",
     },
     {
-      image: "https://placehold.co/295x297/e8e8e8/e8e8e8",
+      image: "prayer-meeting.png",
       title: "Prayer Meeting",
       description:
-        "Lorem Ipsum Dolor Sit Amet Consectetur. Mauris Ut Tellus Ultrices A Habitant Vitae At.",
-      location: "3801 W Temple Ave",
+        "Come join us and witness the power of prayer!\n\nNext Prayer Meeting: TBD",
+      location: "On Campus\n3801 W Temple Ave\nPomona, CA 91768",
       day: "Wednesdays",
-      time: "12PM",
+      time: "1:00 PM",
     },
   ];
 
   return (
     <div className="w-full max-w-[1152px] mx-auto px-5 lg:px-4 sm:px-3 box-border">
-      <div className="font-outfit font-bold text-[40px] lg:text-[32px] sm:text-[28px] text-[#0093D0] text-center leading-[110%] capitalize mb-[72px] lg:mb-12 sm:mb-8">
+      <div className="font-outfit font-bold text-[65px] lg:text-[52px] sm:text-[38px] text-[#0093D0] text-center leading-[110%] capitalize mb-[72px] lg:mb-12 sm:mb-8">
         WEEKLY SCHEDULE
       </div>
 
