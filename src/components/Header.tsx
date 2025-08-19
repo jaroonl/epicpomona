@@ -27,18 +27,13 @@ function Header() {
       href: "/LocalChurches",
       items: [
         { label: "Find a Church", href: "#find-church" },
-        { label: "Church Directory", href: "#directory" },
-        { label: "Plant a Church", href: "#plant" }
+        { label: "Church Directory", href: "#directory" }
       ]
     },
     {
       label: "Upcoming Events",
-      href: "/UpcomingEvents",
-      items: [
-        { label: "Community Gatherings", href: "#gatherings" },
-        { label: "Workshops & Training", href: "#workshops" },
-        { label: "Special Services", href: "#services" }
-      ]
+      href: "/upcoming-events", // Added missing href
+      items: []
     },
     {
       label: "Resources",
@@ -54,7 +49,7 @@ function Header() {
   const toHref = (base: string, child: string) =>
     child.startsWith("#") ? `${base}${child}` : child;
 
-  const handleMouseEnter = (index:number) => {
+  const handleMouseEnter = (index: number) => {
     if (window.innerWidth >= 1024) {
       setActiveDropdown(index);
     }
@@ -70,8 +65,10 @@ function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const toggleMobileDropdown = (index:number) => {
-    setActiveDropdown(activeDropdown === index ? null : index);
+  const toggleMobileDropdown = (index: number) => {
+    if (navigationItems[index].items.length > 0) {
+      setActiveDropdown(activeDropdown === index ? null : index);
+    }
   };
 
   const closeMobileMenu = () => {
@@ -333,7 +330,7 @@ function Header() {
                   >
                     <div className="flex items-center">
                       <Link
-                        href={navItem.href}
+                        href={navItem.href || '#'}
                         className="px-4 py-4 rounded-lg hover:bg-[rgba(250,249,246,0.1)] nav-item"
                         onClick={() => setActiveDropdown(null)}
                       >
@@ -368,7 +365,7 @@ function Header() {
                             return (
                               <Link
                                 key={itemIndex}
-                                href={toHref(navItem.href, item.href)}
+                                href={toHref(navItem.href || '', item.href)}
                                 className="block px-6 py-3 text-base font-medium text-[rgba(250,249,246,0.9)] hover:text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] border-l-4 border-transparent hover:border-[rgba(250,249,246,0.5)] dropdown-item stagger-item"
                                 onClick={() => setActiveDropdown(null)}
                               >
@@ -432,7 +429,7 @@ function Header() {
               <div key={index} className="mobile-nav-item">
                 <div className="w-full flex items-center justify-between px-6 py-4 text-left text-lg font-medium text-[rgba(250,249,246,1)]">
                   <Link
-                    href={navItem.href}
+                    href={navItem.href || '#'}
                     onClick={closeMobileMenu}
                     className="pr-3"
                   >
@@ -460,9 +457,9 @@ function Header() {
                     {navItem.items.map((item, itemIndex) => (
                       <Link
                         key={itemIndex}
-                        href={toHref(navItem.href, item.href)}
+                        href={toHref(navItem.href || '', item.href)}
                         onClick={closeMobileMenu}
-                        className="block px-8 py-3 text-base text[rgba(250,249,246,0.8)] hover:text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] transition-colors border-l-4 border-transparent hover:border-[rgba(250,249,246,0.5)] font-outfit"
+                        className="block px-8 py-3 text-base text-[rgba(250,249,246,0.8)] hover:text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] transition-colors border-l-4 border-transparent hover:border-[rgba(250,249,246,0.5)] font-outfit"
                       >
                         {item.label}
                       </Link>
