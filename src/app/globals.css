@@ -379,7 +379,7 @@ body {
 
 .epic-illustration {
   width: 481px;
-  height: 175px;
+  height: auto;
   object-fit: contain;
 }
 
@@ -594,6 +594,7 @@ body {
 }
 
 .church-card {
+  position: relative;
   display: flex;
   width: 315px;
   padding: 20px;
@@ -603,6 +604,7 @@ body {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.50);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 550px;
 }
 
 .church-card:hover {
@@ -693,6 +695,9 @@ body {
 }
 
 .arrow-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
   display: flex;
   width: 38px;
   height: 34px;
@@ -857,4 +862,3 @@ body {
     color: black !important;
   }
 }
-

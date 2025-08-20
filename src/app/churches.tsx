@@ -18,7 +18,7 @@ export default function LocalChurches() {
       <span className="title-line">CHURCHES</span>
     </h1>
     <img
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/09e2cc40d039171ae8bb01379f198ea3a373e3d8?width=962"
+      src="/images/epicNotChurch.svg"
       alt="Epic is not a church illustration"
       className="epic-illustration"
     />
@@ -62,7 +62,7 @@ export default function LocalChurches() {
               <h3 className="why-church">Why is it important to attend a church?</h3>
 
               <p className="church-importance">
-                Local churches provide a community that will extend beyond your time in college and EPIC. Parachurch ministries, including EPIC, are not meant to take the place of churches or do everything that churches do. We strongly encourage everyone to attend a church!
+                Local churches provide a community that will extend beyond your time in college and Epic. Parachurch ministries, including Epic, are not meant to take the place of churches or do everything that churches do. We strongly encourage everyone to attend a church!
               </p>
 
               <p className="new-area-text">
@@ -94,7 +94,7 @@ export default function LocalChurches() {
                 location="1555 Fairway Dr,
 Walnut, CA 91789"
                 time="10:45 AM - 12:00 PM"
-                image="https://cdn.builder.io/api/v1/image/assets/TEMP/178366c59e2e239a0d2becf1d470d197e231fd16?width=550"
+                image="/images/fcbcWalnut.svg"
                 locationLink="https://maps.app.goo.gl/757uG9VJ3kEnsEG37"
                 ministryInfo="TURF(Ministry): first three Fridays, 7:30-10:00 pm"
                 ministryWebsite="https://english.fcbcwalnut.org/"
@@ -105,8 +105,8 @@ Walnut, CA 91789"
                 location="841 Glenwick Ave
 Walnut, CA 91789"
                 time="11:15 AM"
-                image="https://cdn.builder.io/api/v1/image/assets/TEMP/f905a38fcea856df90351efe41adff05f16beba1?width=550"
-                locationLink="https://maps.app.goo.gl/vHbdZvZtj7X7uxYp9"
+                image="/images/anchor.svg"
+                locationLink="https://maps.app.goo.gl/GR19ZX2kPpQVmzpy5"
                 ministryInfo=""
                 ministryWebsite="https://www.anchor.community/"
               />
@@ -115,7 +115,7 @@ Walnut, CA 91789"
                 name="Crossway Community Church"
                 location="975 W Imperial Highway Suite 150 Brea, CA 92821"
                 time="10:30 AM"
-                image="https://cdn.builder.io/api/v1/image/assets/TEMP/fb5e71c86a7153cb7ebdacbcb5377c066e9b7af4?width=550"
+                image="/images/crossway.svg"
                 locationLink="https://maps.app.goo.gl/pjgMVhiUsjv6t2Rg7"
                 ministryInfo="TWO:FORTYTWO (College & Young Adult Ministry): Fridays, 7:30-10:00 pm"
                 ministryWebsite="https://crosswayoc.com/"
@@ -140,7 +140,7 @@ Walnut, CA 91789"
           <div className="container-responsive">
             <img
               className="map-image"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/a079436eeb47d286b5ef8c0d313d6cfc52c21f63?width=1276"
+              src="/images/churchMap.svg"
               alt="Map showing local church locations"
             />
           </div>
