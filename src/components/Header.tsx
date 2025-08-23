@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 function Header() {
-  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -15,65 +14,28 @@ function Header() {
   const navigationItems = [
     {
       label: "About Us",
-      href: "/AboutUs",
-      items: [
-        { label: "Our Mission", href: "#mission" },
-        { label: "Leadership Team", href: "#leadership" },
-        { label: "History & Vision", href: "#history" }
-      ]
+      href: "/AboutUs"
     },
     {
       label: "Local Churches",
-      href: "/LocalChurches",
-      items: [
-        { label: "Find a Church", href: "#find-church" },
-        { label: "Church Directory", href: "#directory" }
-      ]
+      href: "/LocalChurches"
     },
     {
       label: "Upcoming Events",
-      href: "/upcoming-events", // Added missing href
-      items: []
+      href: "/UpcomingEvents"
     },
     {
       label: "Resources",
-      href: "/Resources",
-      items: [
-        { label: "Study Materials", href: "#study" },
-        { label: "Prayer Requests", href: "#prayer" },
-        { label: "Community Support", href: "#support" }
-      ]
+      href: "/Resources"
     }
   ];
-
-  const toHref = (base: string, child: string) =>
-    child.startsWith("#") ? `${base}${child}` : child;
-
-  const handleMouseEnter = (index: number) => {
-    if (window.innerWidth >= 1024) {
-      setActiveDropdown(index);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (window.innerWidth >= 1024) {
-      setActiveDropdown(null);
-    }
-  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const toggleMobileDropdown = (index: number) => {
-    if (navigationItems[index].items.length > 0) {
-      setActiveDropdown(activeDropdown === index ? null : index);
-    }
-  };
-
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-    setActiveDropdown(null);
   };
 
   return (
@@ -92,23 +54,6 @@ function Header() {
             to {
               transform: translateY(0);
               opacity: 1;
-            }
-          }
-
-          @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-3deg); }
-            75% { transform: rotate(3deg); }
-          }
-
-          @keyframes slideInUp {
-            from {
-              opacity: 0;
-              transform: translateY(10px) scale(0.95);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0) scale(1);
             }
           }
 
@@ -131,17 +76,6 @@ function Header() {
             to {
               opacity: 1;
               transform: translateX(0);
-            }
-          }
-
-          @keyframes scaleIn {
-            from {
-              opacity: 0;
-              transform: scale(0);
-            }
-            to {
-              opacity: 1;
-              transform: scale(1);
             }
           }
 
@@ -169,37 +103,107 @@ function Header() {
             animation: slideInDown 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
           }
 
-          .logo-hover:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+          .logo-button {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 16px;
+            padding: 16px 20px;
+            position: relative;
+            overflow: hidden;
           }
 
-          .logo-wiggle:hover {
-            animation: wiggle 0.5s ease-in-out;
+          .logo-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(250, 249, 246, 0.1), transparent);
+            transition: left 0.6s ease-in-out;
+          }
+
+          .logo-button:hover::before {
+            left: 100%;
+          }
+
+          .logo-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            background: linear-gradient(135deg, rgba(250, 249, 246, 0.1), rgba(250, 249, 246, 0.05));
+            box-shadow: 
+              0 10px 30px rgba(0, 0, 0, 0.25),
+              0 0 0 1px rgba(250, 249, 246, 0.15),
+              inset 0 1px 0 rgba(250, 249, 246, 0.1);
+            border-color: rgba(250, 249, 246, 0.3);
+          }
+
+          .logo-button:active {
+            transform: translateY(-1px) scale(1.01);
+            transition: all 0.1s ease-out;
+          }
+
+          .logo-image {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          }
+
+          .logo-button:hover .logo-image {
+            transform: rotate(-2deg) scale(1.05);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+          }
+
+          .logo-text-epic {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          }
+
+          .logo-text-pomona {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          }
+
+          .logo-button:hover .logo-text-epic {
+            transform: translateX(2px);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          }
+
+          .logo-button:hover .logo-text-pomona {
+            transform: translateX(3px);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
           }
 
           .nav-item {
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 12px;
+            padding: 10px 24px;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+          }
+
+          .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(250, 249, 246, 0.15), rgba(250, 249, 246, 0.08));
+            transition: width 0.4s ease-out;
+            z-index: -1;
+          }
+
+          .nav-item:hover::before {
+            width: 100%;
           }
 
           .nav-item:hover {
-            transform: translateY(-2px) scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 
+              0 6px 20px rgba(0, 0, 0, 0.15),
+              0 0 0 1px rgba(250, 249, 246, 0.1);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
           }
 
           .nav-item:active {
-            transform: scale(0.95);
-          }
-
-          .dropdown-menu {
-            animation: slideInUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-          }
-
-          .dropdown-item {
-            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-          }
-
-          .dropdown-item:hover {
-            transform: translateX(5px) scale(1.02);
+            transform: translateY(0);
+            transition: all 0.1s ease-out;
           }
 
           .underline-expand {
@@ -210,7 +214,7 @@ function Header() {
           .underline-expand::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -2px;
             left: 0;
             height: 2px;
             background-color: rgba(250, 249, 246, 1);
@@ -222,38 +226,8 @@ function Header() {
             width: 100%;
           }
 
-          .chevron {
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-          }
-
-          .chevron.rotate {
-            transform: rotate(180deg);
-          }
-
-          .dropdown-arrow {
-            animation: scaleIn 0.2s ease-out 0.1s both;
-          }
-
-          .stagger-item:nth-child(1) { animation-delay: 0.05s; }
-          .stagger-item:nth-child(2) { animation-delay: 0.1s; }
-          .stagger-item:nth-child(3) { animation-delay: 0.15s; }
-
-          .stagger-item {
-            animation: slideInLeft 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-          }
-
           .logo-text {
             animation: slideInLeft 0.6s ease-out 0.3s both;
-          }
-
-          .logo-epic:hover {
-            transform: scale(1.02);
-            transition: transform 0.2s ease-out;
-          }
-
-          .logo-pomona:hover {
-            transform: scale(1.02);
-            transition: transform 0.2s ease-out;
           }
 
           .bottom-border {
@@ -289,104 +263,59 @@ function Header() {
 
           .mobile-nav-item {
             animation: hamburgerSlide 0.3s ease-out both;
+            margin-bottom: 4px;
           }
 
           .mobile-nav-item:nth-child(1) { animation-delay: 0.1s; }
           .mobile-nav-item:nth-child(2) { animation-delay: 0.2s; }
           .mobile-nav-item:nth-child(3) { animation-delay: 0.3s; }
           .mobile-nav-item:nth-child(4) { animation-delay: 0.4s; }
+          .mobile-nav-item:last-child { margin-bottom: 0; } /* Remove margin from last item */
         `}</style>
 
-        <div className="flex flex-col items-center font-outfit text-2xl text-[rgba(250,249,246,1)] font-semibold">
-          <div className="flex w-full max-w-[1152px] items-center justify-between px-6 lg:px-8">
-            {/* Logo Section */}
-            <Link href="/" className="bg-transparent flex py-[20px] items-center gap-4 overflow-hidden whitespace-nowrap leading-7 flex-shrink-0 cursor-pointer logo-hover">
-              <div className="relative logo-wiggle">
+        <div className="flex flex-col items-center font-outfit text-lg text-[rgba(250,249,246,1)] font-semibold">
+          <div className="flex w-full max-w-[1152px] items-center justify-between px-10 lg:px-16 py-0"> {/* Added vertical padding */}
+            {/* Logo Button - Combined into one cohesive button */}
+            <Link 
+              href="/" 
+              className="logo-button flex py-[20px] items-center gap-4 overflow-hidden whitespace-nowrap leading-7 flex-shrink-0 cursor-pointer bg-transparent border-2 border-transparent hover:border-[rgba(250,249,246,0.2)]"
+            >
+              <div className="relative logo-image">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/d1daca73f69a00c6e5e7a1a1332fb96ee50bc9c7?placeholderIfAbsent=true"
-                  className="aspect-[2.29] object-contain object-center w-[117px] self-start mt-1 flex-shrink-0 max-w-full drop-shadow-sm"
+                  className="aspect-[2.29] object-contain object-center w-[117px] flex-shrink-0 max-w-full drop-shadow-sm"
                   alt="EPIC POMONA Logo"
                 />
               </div>
               <div className="leading-7 tracking-wide logo-text">
-                <span className="block text-2xl font-bold logo-epic cursor-pointer">
+                <span className="block text-2xl font-bold logo-text-epic">
                   Epic Movement
                 </span>
-                <span className="block text-lg font-medium opacity-90 logo-pomona cursor-pointer">
+                <span className="block text-lg font-medium opacity-90 logo-text-pomona">
                   POMONA
                 </span>
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1 leading-none justify-end flex-shrink-0">
-              {navigationItems.map((navItem, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="relative"
-                    onMouseEnter={() => handleMouseEnter(index)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <div className="flex items-center">
-                      <Link
-                        href={navItem.href || '#'}
-                        className="px-4 py-4 rounded-lg hover:bg-[rgba(250,249,246,0.1)] nav-item"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        <span className="relative underline-expand">
-                          {navItem.label}
-                        </span>
-                      </Link>
-                      <button
-                        type="button"
-                        className="px-1 py-4"
-                        aria-haspopup="true"
-                        aria-expanded={activeDropdown === index}
-                        onClick={() =>
-                          setActiveDropdown(activeDropdown === index ? null : index)
-                        }
-                      >
-                        <svg
-                          className={`ml-2 w-4 h-4 chevron ${activeDropdown === index ? 'rotate' : ''}`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
-                    </div>
-
-                    {activeDropdown === index && (
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-[rgba(29,32,70,0.98)] backdrop-blur-sm rounded-lg shadow-xl border border-[rgba(250,249,246,0.1)] dropdown-menu">
-                        <div className="py-2">
-                          {navItem.items.map((item, itemIndex) => {
-                            return (
-                              <Link
-                                key={itemIndex}
-                                href={toHref(navItem.href || '', item.href)}
-                                className="block px-6 py-3 text-base font-medium text-[rgba(250,249,246,0.9)] hover:text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] border-l-4 border-transparent hover:border-[rgba(250,249,246,0.5)] dropdown-item stagger-item"
-                                onClick={() => setActiveDropdown(null)}
-                              >
-                                {item.label}
-                              </Link>
-                            );
-                          })}
-                        </div>
-                        
-                        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[rgba(29,32,70,0.98)] border-l border-t border-[rgba(250,249,246,0.1)] rotate-45 dropdown-arrow" />
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+            {/* Desktop Navigation - Improved spacing */}
+            <nav className="hidden lg:flex items-center gap-8 leading-none justify-end flex-shrink-0"> {/* Increased gap from 2 to 4 (16px) */}
+              {navigationItems.map((navItem, index) => (
+                <Link
+                  key={index}
+                  href={navItem.href}
+                  className="nav-item"
+                >
+                  <span className="relative underline-expand">
+                    {navItem.label}
+                  </span>
+                </Link>
+              ))}
             </nav>
 
-            {/* Hamburger Menu Button */}
+            {/* Hamburger Menu Button - Added margin for breathing room */}
             <button
               onClick={toggleMobileMenu}
-              className={`lg:hidden flex flex-col items-center justify-center w-12 h-12 rounded-lg hover:bg-[rgba(250,249,246,0.1)] focus:outline-none focus:ring-2 focus:ring-[rgba(250,249,246,0.3)] transition-all duration-300 hamburger ${isMobileMenuOpen ? 'open' : ''}`}
+              className={`lg:hidden flex flex-col items-center justify-center w-12 h-12 ml-4 rounded-lg hover:bg-[rgba(250,249,246,0.1)] focus:outline-none focus:ring-2 focus:ring-[rgba(250,249,246,0.3)] transition-all duration-300 hamburger ${isMobileMenuOpen ? 'open' : ''}`}
               aria-label="Toggle mobile menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -400,6 +329,7 @@ function Header() {
         <div className="h-px bg-[rgba(250,249,246,0.2)] bottom-border" />
       </header>
 
+      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
@@ -407,6 +337,7 @@ function Header() {
         />
       )}
 
+      {/* Mobile Menu Sidebar */}
       <div className={`fixed top-0 right-0 h-full w-80 max-w-[90vw] bg-[rgba(29,32,70,0.98)] backdrop-blur-md z-50 transform transition-transform duration-300 ease-out lg:hidden mobile-menu ${
         isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
@@ -424,48 +355,16 @@ function Header() {
             </button>
           </div>
 
-          <nav className="flex-1 overflow-y-auto py-4">
+          <nav className="flex-1 overflow-y-auto py-4 px-4"> {/* Added horizontal padding and increased vertical padding */}
             {navigationItems.map((navItem, index) => (
               <div key={index} className="mobile-nav-item">
-                <div className="w-full flex items-center justify-between px-6 py-4 text-left text-lg font-medium text-[rgba(250,249,246,1)]">
-                  <Link
-                    href={navItem.href || '#'}
-                    onClick={closeMobileMenu}
-                    className="pr-3"
-                  >
-                    {navItem.label}
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => toggleMobileDropdown(index)}
-                    aria-expanded={activeDropdown === index}
-                    className="p-2 rounded hover:bg-[rgba(250,249,246,0.1)]"
-                  >
-                    <svg
-                      className={`w-5 h-5 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180' : ''}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
-
-                {activeDropdown === index && (
-                  <div className="bg-[rgba(0,0,0,0.2)] border-t border-[rgba(250,249,246,0.1)]">
-                    {navItem.items.map((item, itemIndex) => (
-                      <Link
-                        key={itemIndex}
-                        href={toHref(navItem.href || '', item.href)}
-                        onClick={closeMobileMenu}
-                        className="block px-8 py-3 text-base text-[rgba(250,249,246,0.8)] hover:text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] transition-colors border-l-4 border-transparent hover:border-[rgba(250,249,246,0.5)] font-outfit"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                <Link
+                  href={navItem.href}
+                  onClick={closeMobileMenu}
+                  className="block w-full px-8 py-3 mx-2 text-left text-base font-medium text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] transition-colors rounded-lg" // Added margin and border radius
+                >
+                  {navItem.label}
+                </Link>
               </div>
             ))}
           </nav>

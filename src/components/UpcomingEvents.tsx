@@ -10,39 +10,30 @@ function UpcomingEvents() {
       description:
         "First event of the year! Come to the lawn next to parking structure 2 for crafts and sports at the lawn!",
       location: "Parking Structure 2 @ Cal Poly Pomona\n3801 W Temple Ave\nPomona, CA 91768",
-      day: "August 21",
-      time: "7:00 PM",
-    },
-    {
-      image: "ww-game-night.png",
-      title: "Game Night",
-      description:
-        "Join us for an epic board game night filled with strategy, laughter, and friendly competition!",
-      location: "On Campus\n3801 W Temple Ave\nPomona, CA 91768",
       day: "August 25",
-      time: "7:00 PM",
+      time: "6:00 PM",
     },
     {
       image: "ww-bowling-night.png",
       title: "Bowling Night",
       description:
         "Join us for a fun-filled bowling social and enjoy a relaxed evening to socialize!",
-      location: "Oak Tree Lanes\n990 N Diamond Bar Blvd\nDiamond Bar, CA 91765",
+      location: "Chaparral Lanes\n400 W Bonita Ave\nSan Dimas, CA 91773",
       day: "August 26",
       time: "7:00 PM",
     },
     {
       image: "ww-boba.png",
-      title: "Ding Tea Social",
+      title: "Boba & Board Games",
       description:
         "Come hangout and meet new friends while enjoying some boba!",
       location: "Ding Tea\n2516 E Workman Ave\nWest Covina, CA 91791",
       day: "August 27",
-      time: "7:00 PM",
+      time: "6:30 PM",
     },
     {
       image: "ww-large-group.jpg",
-      title: "Large Group",
+      title: "Large Group & Game Night",
       description:
         "Come join us for our first large group meeting of the year! Come see what Epic is all about!",
       location: "EFree Church Diamond Bar\n3255 S Diamond Bar Blvd\nDiamond Bar, CA 91765",
