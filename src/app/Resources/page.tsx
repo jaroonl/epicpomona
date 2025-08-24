@@ -108,7 +108,9 @@ const HeroSection = () => (
 
 const PrayerSection = () => (
   <section className="flex flex-col items-center gap-[40px] max-w-[974px] mx-auto">
-    <h2 className="font-outfit text-[48px] font-bold leading-normal text-[#1D2046] max-md:text-[36px]">
+    <h2 className="font-outfit text-[48px] font-bold leading-normal text-[#1D2046] max-md:text-[36px]"
+    id="prayer-section"
+    >
       Need Prayer?
     </h2>
     <p className="font-[Outfit] text-[24px] font-normal leading-normal text-black w-full text-center max-md:text-[20px]">
@@ -134,7 +136,9 @@ const GoogleFormEmbed = () => (
 
 const SupportSection = () => (
   <section className="flex flex-col items-center gap-[36px] max-w-[1102px] mx-auto">
-    <h2 className="font-[Outfit] text-[48px] font-bold leading-normal text-[#1D2046] max-md:text-[36px]">
+    <h2 className="font-[Outfit] text-[48px] font-bold leading-normal text-[#1D2046] max-md:text-[36px]"
+    id="support-section
+    ">
       Support
     </h2>
     <p className="font-[Outfit] text-[24px] font-normal leading-normal text-black w-full text-center max-md:text-[20px]">

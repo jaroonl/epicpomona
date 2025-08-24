@@ -12,6 +12,7 @@ const MissionHeader: React.FC = () => (
     style={{ backgroundColor: "#FAF9F6" }}
   >
     <h2
+      id="mission-statement"
       className="text-5xl font-bold tracking-tight max-md:text-4xl max-sm:text-3xl leading-tight"
       style={{ color: "#1D2046" }}
     >
@@ -238,6 +239,7 @@ const OurTeam: React.FC = () => {
       <header className="w-full max-w-[1440px]">
         <div className="flex items-center gap-6 mb-4">
           <h1
+            id="our-team"
             className="text-6xl font-bold tracking-tight max-md:text-5xl max-sm:text-4xl leading-tight"
             style={{ color: "#1D2046" }}
           >

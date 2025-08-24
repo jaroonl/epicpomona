@@ -73,21 +73,21 @@ const Footer = () => {
             </div>
             <div className="flex flex-col gap-3 w-full">
               <a
-                href="#"
+                href="/AboutUs"
                 className="text-[16px] font-normal leading-[140%] font-outfit hover:text-white transition-colors"
                 style={{ color: "rgba(243, 243, 243, 1)" }}
               >
                 What is Epic?
               </a>
               <a
-                href="#"
+                href="/AboutUs#mission-statement"
                 className="text-[16px] font-normal leading-[140%] font-outfit hover:text-white transition-colors"
                 style={{ color: "rgba(243, 243, 243, 1)" }}
               >
                 Mission Statement
               </a>
               <a
-                href="#"
+                href="/AboutUs#our-team"
                 className="text-[16px] font-normal leading-[140%] font-outfit hover:text-white transition-colors"
                 style={{ color: "rgba(243, 243, 243, 1)" }}
               >
@@ -108,25 +108,18 @@ const Footer = () => {
             </div>
             <div className="flex flex-col gap-3 w-full">
               <a
-                href="#"
+                href="/LocalChurches"
                 className="text-[16px] font-normal leading-[140%] font-outfit hover:text-white transition-colors"
                 style={{ color: "rgba(243, 243, 243, 1)" }}
               >
                 Local Churches
               </a>
               <a
-                href="#"
+                href="/UpcomingEvents"
                 className="text-[16px] font-normal leading-[140%] font-outfit hover:text-white transition-colors"
                 style={{ color: "rgba(243, 243, 243, 1)" }}
               >
                 Upcoming Events
-              </a>
-              <a
-                href="#"
-                className="text-[16px] font-normal leading-[140%] font-outfit hover:text-white transition-colors"
-                style={{ color: "rgba(243, 243, 243, 1)" }}
-              >
-                Discord Announcements
               </a>
             </div>
           </div>
@@ -150,7 +143,7 @@ const Footer = () => {
                 Rides Sign-up
               </a>
               <a
-                href="#"
+                href="/Resources#prayer-section"
                 className="text-[16px] font-normal leading-[140%] font-outfit hover:text-white transition-colors"
                 style={{ color: "rgba(243, 243, 243, 1)" }}
               >
@@ -171,7 +164,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-col gap-3 w-full">
               <a
-                href="#"
+                href="/Resources#support-section"
                 className="text-[16px] font-normal leading-[140%] font-outfit hover:text-white transition-colors"
                 style={{ color: "rgba(243, 243, 243, 1)" }}
               >
