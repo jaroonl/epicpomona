@@ -1,10 +1,10 @@
+"use client";
+
 {/* UPCOMING EVENTS PAGE
     (MOST EDITS WILL BE ON THIS FILE)
     - event cards
     - retreat cards
     - featured event banner */}
-
-"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -17,115 +17,115 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 {/* event cards */ }
 const regularEvents: Event[] = [
   {
-    id: "1",
-    title: "Ministry Fair",
-    description:
-      "Lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve lead serve",
-    image: "/images/ministryfair.png",
-    location: "Ursa Major C (BSC)",  // **ONLY list location if on campus. otherwise, state to join discord to see location** 
-    time: "7:00 PM",
-    day: "Friday",
-    date: "Nov 15",
-    longDescription: "Come out for an evening of friendly competition and fellowship! Broomball is like hockey but played on foot with brooms and a ball. All skill levels welcome - we'll provide equipment and teach beginners. Bring warm clothes and a competitive spirit!",
-    cost: "Free",
-  },
-  {
-    id: "3",
-    title: "Thanksmas",
-    description:
-      "A special dinner event bringing students together around tables for community and conversation.",
-    image: "/images/thanksmas.png",
-    location: "Join Discord for Location",  // **ONLY list location if on campus. otherwise, state to join discord to see location**
-    time: "6:30 PM",
-    day: "Thursday",
-    date: "Nov 21",
-    longDescription: "Experience authentic community over a home-cooked meal! Feast for Five connects students in small groups around dinner tables for meaningful conversation, prayer, and fellowship. Each table hosts five students for an evening of food and friendship.",
-    cost: "Free",
-  },
-  {
     id: "4",
-    title: "Praise and Prayer Night",
+    title: "Sports & Crafts Social",
     description:
-      "Show us Chriiiiiist, show us ChriiiiiIIIIIIIIist, o God reveal your gloorryyy, through the preaching of your word.",
-    image: "/images/praiseandprayer.png",
-    location: "Ursa Major C (BSC)",  // **ONLY list location if on campus. otherwise, state to join discord to see location**
-    time: "5:00 PM",
-    day: "Thursday",
-    date: "Oct 31",
-    longDescription: "Come dressed up and ready to serve! We'll be hosting a Halloween outreach event for local families, providing a safe and fun environment for trick-or-treating, games, and community connection. Help us show God's love to our neighbors!",
+      "First event of the year! Come to the lawn next to parking structure 2 for crafts and sports at the lawn!",
+    image: "/images/ww-sports-crafts.png",
+    location: "Parking Structure 2",  // **ONLY list location if on campus. otherwise, state to join discord to see location** 
+    time: "6:00 PM",
+    day: "Monday",
+    date: "Aug 25",
+    longDescription: "First event of the year! Come to the lawn next to parking structure 2 for crafts and sports at the lawn!",
     cost: "Free",
   },
   {
     id: "5",
-    title: "Park Day",
+    title: "Bowling Night",
     description:
-      "Relax and unwind with friends while playing sports and hanging out.",
-    image: "/images/parkday.png",
-    location: "Join Discord for Location",  // **ONLY list location if on campus. otherwise, state to join discord to see location**
-    time: "8:00 PM",
-    day: "Saturday",
-    date: "Nov 9",
-    longDescription: "Take a break from studying and join us for a cozy movie night! We'll be screening an inspiring film followed by discussion. Popcorn, snacks, and drinks provided. Bring blankets and pillows for maximum comfort!",
-    cost: "Free",
+      "Join us for a fun-filled bowling social and enjoy a relaxed evening to socialize!",
+    image: "/images/ww-bowling-night.png",
+    location: "Chaparral Lanes - 400 W Bonita Ave, San Dimas, CA 91773",  // **ONLY list location if on campus. otherwise, state to join discord to see location**
+    time: "7:00 PM",
+    day: "Tuesday",
+    date: "Aug 26",
+    longDescription: "Join us for a fun-filled bowling social and enjoy a relaxed evening to socialize!",
+    cost: "$12, free for newcomers",
   },
   {
     id: "6",
-    title: "Worship Under the Stars",
+    title: "Boba & Board Games",
     description:
-      "An evening dedicated to worship, prayer, and encountering God's presence together as a community.",
-    image: "/images/worship.png",
-    location: "Old Structure",  // **ONLY list location if on campus. otherwise, state to join discord to see location**
-    time: "7:30 PM",
+      "Come hangout and meet new friends while enjoying some boba!",
+    image: "/images/ww-boba.png",
+    location: "Ding Tea - 2516 E Workman Ave,\nWest Covina, CA 91791",  // **ONLY list location if on campus. otherwise, state to join discord to see location**
+    time: "6:30 PM",
     day: "Wednesday",
-    date: "Nov 13",
-    longDescription: "Join us for an intimate evening of worship and prayer. This special night is focused on encountering God's presence through music, testimonies, and corporate prayer. Come expecting to be refreshed and renewed in your faith.",
+    date: "Aug 27",
+    longDescription: "Come hangout and meet new friends while enjoying some boba!",
     cost: "Free",
+  },
+  {
+    id: "7",
+    title: "Large Group & Game Night",
+    description:
+      "Come join us for our first large group meeting of the year! Come see what Epic is all about!",
+    image: "/images/ww-large-group.jpg",
+    location: "Join Discord for Location",  // **ONLY list location if on campus. otherwise, state to join discord to see location**
+    time: "7:00 PM",
+    day: "Thursday",
+    date: "Aug 28",
+    longDescription: "Come join us for our first large group meeting of the year! Come see what Epic is all about!",
+    cost: "Free",
+  },
+  {
+    id: "8",
+    title: "Downtown Disney",
+    description:
+      "Come explore Downtown Disney with us as we enjoy beignets and other foods!",
+    image: "/images/ww-downtown-disney.png",
+    location: "Downtown Disney District - 1741 Disneyland Dr, Anaheim, CA 92802",  // **ONLY list location if on campus. otherwise, state to join discord to see location**
+    time: "7:30 PM",
+    day: "Friday",
+    date: "Aug 29",
+    longDescription: "Come explore Downtown Disney with us as we enjoy beignets and other foods!",
+    cost: "Split parking with driver",
   },
 ];
 
 {/* retreat cards */ }
 const retreats: Event[] = [
   {
-    id: "2",
+    id: "1",
     title: "Fall Retreat",
     description:
-      "A weekend getaway for spiritual growth, fellowship, and unforgettable memories.",
-    image: "/images/fallretreat.png",
-    location: "The Woods",
-    time: "6:00 PM",
-    day: "Friday",
-    date: "Nov 22",
-    longDescription: "Join us for our annual Fall Retreat! Three days of worship, teaching, small group discussions, outdoor activities, and deep fellowship. This retreat is designed to help you grow in your faith while building lasting friendships with other students.",
-    cost: "$150 (scholarships available)",
-    registrationLink: "https://epicpomona.org/register/fall-retreat",
+      "TBD",
+    image: "/images/epic-movement.jpg",
+    location: "TBD",
+    time: "TBD",
+    day: "TBD",
+    date: "TBD",
+    longDescription: "TBD",
+    cost: "TBD",
+    registrationLink: "https://www.youtube.com/watch?v=NhHb9usKy6Q&list=RDNhHb9usKy6Q&start_radio=1",
   },
   {
-    id: "7",
+    id: "2",
     title: "Winter Conference",
     description:
-      "A winter getaway focused on spiritual growth and community building in a beautiful mountain setting.",
-    image: "/images/winter-conference.png",
+      "TBD",
+    image: "/images/epic-movement.jpg",
     location: "Joe Mama's",
-    time: "4:00 PM",
-    day: "Friday",
-    date: "Jan 17",
-    longDescription: "Escape to the mountains for a transformative winter retreat! Experience God's beauty in creation while engaging in worship, teaching sessions, and meaningful fellowship. Activities include hiking, group discussions, and evening worship sessions around the fire.",
-    cost: "$200 (scholarships available)",
-    registrationLink: "https://epicpomona.org/register/winter-retreat",
+    time: "TBD",
+    day: "TBD",
+    date: "TBD",
+    longDescription: "TBD",
+    cost: "TBD",
+    registrationLink: "https://www.youtube.com/watch?v=NhHb9usKy6Q&list=RDNhHb9usKy6Q&start_radio=1",
   },
   {
-    id: "8",
+    id: "3",
     title: "Spring Break Trip",
     description:
-      "Celebrate renewal and growth with a spring retreat focused on fresh beginnings and spiritual revival.",
-    image: "/images/sbt.png",
+      "TBD",
+    image: "/images/epic-movement.jpg",
     location: "Jaron's Basement",
-    time: "5:00 PM",
-    day: "Friday",
-    date: "Mar 21",
-    longDescription: "Welcome spring with a refreshing retreat by the lake! Focus on themes of renewal, growth, and new beginnings through worship, teaching, and outdoor activities. Enjoy kayaking, campfires, and quiet reflection time in nature.",
-    cost: "$175 (scholarships available)",
-    registrationLink: "https://epicpomona.org/register/spring-retreat",
+    time: "TBD",
+    day: "TBD",
+    date: "TBD",
+    longDescription: "TBD",
+    cost: "TBD",
+    registrationLink: "https://www.youtube.com/watch?v=NhHb9usKy6Q&list=RDNhHb9usKy6Q&start_radio=1",
   },
 ];
 
