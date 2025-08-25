@@ -178,7 +178,7 @@ export default function EventCard({ event }: EventCardProps) {
             {!event.registrationLink && (
               <div className="info-section">
                 <a
-                  href="https://discord.com/channels/1104711918310150244/1104711918897332286"
+                  href="https://discord.gg/r336sM2vF5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="discord-link"
