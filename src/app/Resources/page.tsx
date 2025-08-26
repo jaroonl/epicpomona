@@ -122,7 +122,7 @@ const PrayerSection = () => (
 const GoogleFormEmbed = () => (
   <section className="w-full flex justify-center px-6 py-12 mt-4">
     <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLScbfYSAH1YyFmvRw5gvmfW4GZyT-Xei0kv1VJAL34c-5q3H-g/viewform?embedded=true"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSeiGzYUydUrlcjXPA-vIYA3zyqCN19vNToe8no0m9bcdNNyDw/viewform"
       width="760"
       height="600"
       frameBorder="0"
