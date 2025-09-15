@@ -33,7 +33,7 @@ function Hero() {
   }, [totalSlides]);
 
   // Navigation functions - autoplay continues automatically
-  const goToSlide = React.useCallback((index) => {
+  const goToSlide = React.useCallback((index:number) => {
     if (index < 0 || index >= totalSlides) return;
     setCurrentSlide(index);
   }, [totalSlides]);
