@@ -95,27 +95,26 @@ const MissionPanel: React.FC<MissionPanelProps> = ({
   </article>
 );
 
-
 const MissionStatement: React.FC = () => {
   const missionPanels = [
     {
       number: "01",
       title: "invite",
-      image: "./images/LargeGroup.png",
+      image: "./Images/General/largegroup.avif",
       description:
         "We invite Asian American students and communities to come and see who Jesus is and his mission given to each of us. (Luke 14:15-24, Isaiah 55:1-2)",
     },
     {
       number: "02",
       title: "integrate",
-      image: "./images/Tabling.jpg",
+      image: "./Images//General/tabling.avif",
       description:
         "We integrate our faith in every area of our lives, helping each other grow, multiply and build on God's faith in us.",
     },
     {
       number: "03",
       title: "send",
-      image: "./images/SanDiego.png",
+      image: "./Images/General/sandiego.avif",
       description:
         "We send disciples to reach the world for Christ, empowering them to make disciples who make disciples in every nation and culture.",
     },
@@ -157,11 +156,10 @@ const TeamCard: React.FC<TeamCardProps> = ({
   role,
   altText = "",
 }) => (
-<article
-  className="box-border flex flex-col items-center gap-6 p-6 border border-neutral-200 rounded-xl shadow-md h-[380px] w-[320px] max-md:w-[280px] max-sm:w-full max-sm:max-w-[320px] hover:shadow-lg transition-shadow duration-300"
-  style={{ backgroundColor: "#FAF9F6" }}
->
-
+  <article
+    className="box-border flex flex-col items-center gap-6 p-6 border border-neutral-200 rounded-xl shadow-md h-[380px] w-[320px] max-md:w-[280px] max-sm:w-full max-sm:max-w-[320px] hover:shadow-lg transition-shadow duration-300"
+    style={{ backgroundColor: "#FAF9F6" }}
+  >
     <img
       src={imageUrl}
       alt={altText}
@@ -266,15 +264,15 @@ const OurTeam: React.FC = () => {
 /* ====== ABOUT US MAIN COMPONENT ====== */
 
 const images = [
-  "/images/abmecarousel1.jpg",
-  "/images/abmecarousel2.jpg",
-  "/images/abmecarousel3.jpg",
-  "/images/abmecarousel4.jpg",
-  "/images/abmecarousel5.jpg",
-  "/images/abmecarousel6.jpg",
-  "/images/abmecarousel7.jpg",
-  "/images/abmecarousel8.jpg",
-  "/images/abmecarousel9.jpg",
+  "/Images/Carousel/carousel1.avif",
+  "/Images/Carousel/carousel2.avif",
+  "/Images/Carousel/carousel3.avif",
+  "/Images/Carousel/carousel4.avif",
+  "/Images/Carousel/carousel5.avif",
+  "/Images/Carousel/carousel6.avif",
+  "/Images/Carousel/carousel7.jpg",
+  "/Images/Carousel/carousel8.avif",
+  "/Images/Carousel/carousel9.avif",
 ];
 
 const ImageCarousel: React.FC = () => {
@@ -298,8 +296,7 @@ const ImageCarousel: React.FC = () => {
   };
 
   return (
-<div className="relative w-full h-[300px] max-md:h-[240px] max-sm:h-[200px] rounded-lg overflow-hidden shadow-lg">
-
+    <div className="relative w-full h-[300px] max-md:h-[240px] max-sm:h-[200px] rounded-lg overflow-hidden shadow-lg">
       <img
         key={currentIndex}
         src={images[currentIndex]}
