@@ -28,7 +28,7 @@ function ScheduleCard({
 
     const updateScale = () => {
       if (cardRef.current) {
-        const width = cardRef.current.offsetWidth;
+        const width:number = cardRef.current.offsetWidth;
         // Scale based on card width, with 420px as the base
         setScale(Math.min(width / 420, 1));
       }
@@ -96,7 +96,7 @@ function ScheduleCard({
                       <div className="font-bold">{locationName}</div>
                       {address.length > 0 && (
                         <div className="font-normal">
-                          {address.map((line, index: number) => (
+                          {address.map((line:string, index: number) => (
                             <React.Fragment key={index}>
                               {line}
                               {index < address.length - 1 && <br />}
@@ -169,7 +169,7 @@ function ScheduleCard({
                       style={{ width: `${18 * scale}px`, height: `${18 * scale}px`, marginTop: `${4 * scale}px` }} />
               <div className="text-[#1D2046] leading-[140%]" style={{ fontSize: `${18 * scale}px` }}>
                 <div className="font-bold">{locationName}</div>
-                {address.map((line, i) => (
+                {address.map((line:string, i:number) => (
                   <div key={i}>{line}</div>
                 ))}
               </div>
@@ -177,7 +177,7 @@ function ScheduleCard({
 
             <div className="flex-1 text-[#1D2046] leading-relaxed overflow-auto"
                  style={{ fontSize: `${18 * scale}px` }}>
-              {description.split("\n").map((line, index: number) => (
+              {description.split("\n").map((line:string, index: number) => (
                 <React.Fragment key={index}>
                   {line}
                   {index < description.split("\n").length - 1 && <br />}
