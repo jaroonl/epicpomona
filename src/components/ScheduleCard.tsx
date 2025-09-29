@@ -24,6 +24,8 @@ function ScheduleCard({
   const [scale, setScale] = React.useState(1);
 
   React.useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const updateScale = () => {
       if (cardRef.current) {
         const width = cardRef.current.offsetWidth;
@@ -34,16 +36,17 @@ function ScheduleCard({
 
     updateScale();
     window.addEventListener('resize', updateScale);
-    
+
     // Use ResizeObserver to detect card size changes
-    const resizeObserver = new ResizeObserver(updateScale);
-    if (cardRef.current) {
-      resizeObserver.observe(cardRef.current);
+    let ro: ResizeObserver | null = null;
+    if ("ResizeObserver" in window) {
+      ro = new window.ResizeObserver(() => updateScale());
+      if (cardRef.current) ro.observe(cardRef.current);
     }
 
     return () => {
       window.removeEventListener('resize', updateScale);
-      resizeObserver.disconnect();
+      ro?.disconnect();
     };
   }, []);
 
