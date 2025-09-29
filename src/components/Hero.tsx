@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function Hero() {
@@ -104,33 +105,21 @@ function Hero() {
       {/* Main Title */}
       <div className="absolute top-[180px] left-1/2 transform -translate-x-1/2 w-[502px] h-[297px] text-center font-outfit text-[80px] font-bold leading-[110%] capitalize z-10 lg:top-[180px] lg:text-[80px] lg:w-[502px] lg:h-[297px] md:top-[140px] md:text-[55px] md:w-[400px] md:h-[200px] sm:top-[100px] sm:text-[36px] sm:w-[300px] sm:h-[150px] sm:leading-[100%]">
         <span className="text-[#0093D0] sm:my-[5px] block drop-shadow-lg">INVITE</span>
-        <span className="text-[#1D2046] sm:my-[5px] block drop-shadow-lg">INTEGRATE</span>
+        <span className="text-[#0093D0] sm:my-[5px] block drop-shadow-lg">INTEGRATE</span>
         <span className="text-[#0093D0] sm:my-[5px] block drop-shadow-lg">SEND</span>
       </div>
 
       {/* CTA Button */}
-      <div className="absolute top-[480px] left-1/2 transform -translate-x-1/2 w-[247px] h-[63px] cursor-pointer z-10 lg:top-[480px] md:top-[350px] sm:top-[280px] sm:w-[200px] sm:h-[50px] hover:scale-105 transition-transform duration-200">
-        <div className="relative w-full h-full">
-          {/* SVG Background */}
-          <svg
-            width="247"
-            height="63"
-            viewBox="0 0 247 63"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full drop-shadow-lg"
-          >
-            <path
-              d="M0 31.5C0 14.103 14.103 0 31.5 0H215.5C232.897 0 247 14.103 247 31.5C247 48.897 232.897 63 215.5 63H31.5C14.103 63 0 48.897 0 31.5Z"
-              fill="#1D2046"
-            />
-          </svg>
-
-          {/* Button Text */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-outfit font-semibold text-[18px] text-white leading-[27.5px] tracking-[1.8px] uppercase w-[143px] h-[28px] text-center sm:text-[14px] sm:tracking-[1.4px] sm:w-[120px] sm:h-[20px]">
-            WHO ARE WE?
-          </div>
-        </div>
+      <div className="absolute top-[480px] left-1/2 transform -translate-x-1/2 z-10 lg:top-[480px] md:top-[350px] sm:top-[280px]">
+        <Link
+          href="/AboutUs"
+          className="inline-flex items-center justify-center px-8 py-3 sm:px-6 sm:py-2 
+                    rounded-full bg-[#1D2046] text-white font-outfit font-semibold 
+                    text-lg sm:text-base tracking-[1.5px] uppercase shadow-lg
+                    transition-transform duration-200 hover:scale-105 hover:bg-[#2a2d5c]"
+        >
+          WHO ARE WE?
+        </Link>
       </div>
     </div>
   );

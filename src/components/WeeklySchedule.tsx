@@ -8,19 +8,19 @@ function WeeklySchedule() {
       image: "bible-study.png",
       title: "Bible Study",
       description:
-        "For women: please message a Bible study leader to get the exact location!\n\nFirst Bible Study: 9/2/2025",
-      location: "Men's: BLDG 5 & Women's: Village\n3801 W Temple Ave\nPomona, CA 91768",
+        "For women: please message a Bible study leader to get the exact location!\n",
+      location: "Men's: BLDG 5 & Women's: Check Discord!\n3801 W Temple Ave\nPomona, CA 91768",
       day: "Tuesdays",
-      time: "7:00 PM",
+      time: "@ 7:00 PM",
     },
     {
       image: "large-group.jpg",
       title: "Large Group",
       description:
-        "Come join us for a time of fellowship and learning more about God!\n\nFirst Large Group: 8/28/25",
-      location: "EFree Church Diamond Bar\n3255 S Diamond Bar Blvd\nDiamond Bar, CA 91765",
+        "Come join us for a time of fellowship and learning more about God!\n\nNext Large Group: 10/2/25",
+      location: "Cal Poly Pomona\nUrsa Major C\nBronco Student Center",
       day: "Thursdays",
-      time: "7:00 PM",
+      time: "@ 7:00 PM",
     },
     {
       image: "prayer-meeting.png",
@@ -29,7 +29,7 @@ function WeeklySchedule() {
         "Come join us and witness the power of prayer!\n\nNext Prayer Meeting: TBD",
       location: "On Campus\n3801 W Temple Ave\nPomona, CA 91768",
       day: "Wednesdays",
-      time: "1:00 PM",
+      time: "@ 1:00 PM",
     },
   ];
 
