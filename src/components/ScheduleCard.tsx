@@ -8,7 +8,7 @@ interface ScheduleCardProps {
   description: string;
   location: string;
   day: string;
-  time: string;
+  time?: string;
 }
 
 function ScheduleCard({

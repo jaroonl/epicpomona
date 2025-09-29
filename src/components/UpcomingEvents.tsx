@@ -2,8 +2,17 @@
 import * as React from "react";
 import ScheduleCard from "./ScheduleCard";
 
+type ScheduleItem = {
+  image: string;
+  title: string;
+  description: string;
+  location: string;
+  day: string;
+  time?: string; // <-- optional
+};
+
 function UpcomingEvents() {
-  const scheduleData = [
+  const scheduleData: ScheduleItem[] = [
     {
       image: "fall-retreat.jpg",
       title: "Fall Retreat",
