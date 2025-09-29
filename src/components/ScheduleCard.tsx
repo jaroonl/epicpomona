@@ -96,7 +96,7 @@ function ScheduleCard({
                       <div className="font-bold">{locationName}</div>
                       {address.length > 0 && (
                         <div className="font-normal">
-                          {address.map((line, index) => (
+                          {address.map((line, index: number) => (
                             <React.Fragment key={index}>
                               {line}
                               {index < address.length - 1 && <br />}
@@ -177,7 +177,7 @@ function ScheduleCard({
 
             <div className="flex-1 text-[#1D2046] leading-relaxed overflow-auto"
                  style={{ fontSize: `${18 * scale}px` }}>
-              {description.split("\n").map((line, index) => (
+              {description.split("\n").map((line, index: number) => (
                 <React.Fragment key={index}>
                   {line}
                   {index < description.split("\n").length - 1 && <br />}
