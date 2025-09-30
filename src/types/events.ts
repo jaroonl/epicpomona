@@ -4,15 +4,13 @@ export interface Event {
   description: string;
   image: string;
   location: string;
-  time: string;
-  day: string;
+  time?: string;
+  day?: string;
   date: string; // e.g., "Aug 27"
   // Additional information for the back of the card
   longDescription?: string;
   organizer?: string;
   cost?: string;
-  requirements?: string;
-  contactInfo?: string;
   registrationLink?: string;
 }
 
