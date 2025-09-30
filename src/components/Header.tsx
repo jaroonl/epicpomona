@@ -106,9 +106,15 @@ function Header() {
           .logo-button {
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border-radius: 16px;
-            padding: 16px 20px;
+            padding: 12px 16px;
             position: relative;
             overflow: hidden;
+          }
+
+          @media (min-width: 640px) {
+            .logo-button {
+              padding: 16px 20px;
+            }
           }
 
           .logo-button::before {
@@ -270,36 +276,36 @@ function Header() {
           .mobile-nav-item:nth-child(2) { animation-delay: 0.2s; }
           .mobile-nav-item:nth-child(3) { animation-delay: 0.3s; }
           .mobile-nav-item:nth-child(4) { animation-delay: 0.4s; }
-          .mobile-nav-item:last-child { margin-bottom: 0; } /* Remove margin from last item */
+          .mobile-nav-item:last-child { margin-bottom: 0; }
         `}</style>
 
         <div className="flex flex-col items-center font-outfit text-lg text-[rgba(250,249,246,1)] font-semibold">
-          <div className="flex w-full max-w-[1152px] items-center justify-between px-10 lg:px-16 py-0"> {/* Added vertical padding */}
-            {/* Logo Button - Combined into one cohesive button */}
+          <div className="flex w-full max-w-[1152px] items-center justify-between px-4 sm:px-6 lg:px-16 py-0">
+            {/* Logo Button - Responsive sizing */}
             <Link 
               href="/" 
-              className="logo-button flex py-[20px] items-center gap-4 overflow-hidden whitespace-nowrap leading-7 flex-shrink-0 cursor-pointer bg-transparent border-2 border-transparent hover:border-[rgba(250,249,246,0.2)]"
+              className="logo-button flex py-3 sm:py-[20px] items-center gap-2 sm:gap-3 md:gap-4 overflow-hidden whitespace-nowrap leading-7 flex-shrink-0 cursor-pointer bg-transparent border-2 border-transparent hover:border-[rgba(250,249,246,0.2)]"
             >
               <div className="relative logo-image">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/d1daca73f69a00c6e5e7a1a1332fb96ee50bc9c7?placeholderIfAbsent=true"
-                  className="aspect-[2.29] object-contain object-center w-[117px] flex-shrink-0 max-w-full drop-shadow-sm"
+                  className="aspect-[2.29] object-contain object-center w-[70px] sm:w-[90px] md:w-[117px] flex-shrink-0 max-w-full drop-shadow-sm"
                   alt="EPIC POMONA Logo"
                 />
               </div>
-              <div className="leading-7 tracking-wide logo-text">
-                <span className="block text-2xl font-bold logo-text-epic">
+              <div className="leading-tight sm:leading-7 tracking-wide logo-text">
+                <span className="block text-base sm:text-xl md:text-2xl font-bold logo-text-epic">
                   Epic Movement
                 </span>
-                <span className="block text-lg font-medium opacity-90 logo-text-pomona">
+                <span className="block text-sm sm:text-base md:text-lg font-medium opacity-90 logo-text-pomona">
                   POMONA
                 </span>
               </div>
             </Link>
 
-            {/* Desktop Navigation - Improved spacing */}
-            <nav className="hidden lg:flex items-center gap-8 leading-none justify-end flex-shrink-0"> {/* Increased gap from 2 to 4 (16px) */}
-              {navigationItems.map((navItem, index) => (
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-8 leading-none justify-end flex-shrink-0">
+              {navigationItems.map((navItem, index:number) => (
                 <Link
                   key={index}
                   href={navItem.href}
@@ -312,10 +318,10 @@ function Header() {
               ))}
             </nav>
 
-            {/* Hamburger Menu Button - Added margin for breathing room */}
+            {/* Hamburger Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className={`lg:hidden flex flex-col items-center justify-center w-12 h-12 ml-4 rounded-lg hover:bg-[rgba(250,249,246,0.1)] focus:outline-none focus:ring-2 focus:ring-[rgba(250,249,246,0.3)] transition-all duration-300 hamburger ${isMobileMenuOpen ? 'open' : ''}`}
+              className={`lg:hidden flex flex-col items-center justify-center w-10 h-10 sm:w-12 sm:h-12 ml-2 sm:ml-4 rounded-lg hover:bg-[rgba(250,249,246,0.1)] focus:outline-none focus:ring-2 focus:ring-[rgba(250,249,246,0.3)] transition-all duration-300 hamburger ${isMobileMenuOpen ? 'open' : ''}`}
               aria-label="Toggle mobile menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -355,13 +361,13 @@ function Header() {
             </button>
           </div>
 
-          <nav className="flex-1 overflow-y-auto py-4 px-4"> {/* Added horizontal padding and increased vertical padding */}
-            {navigationItems.map((navItem, index) => (
+          <nav className="flex-1 overflow-y-auto py-4 px-4">
+            {navigationItems.map((navItem, index:number) => (
               <div key={index} className="mobile-nav-item">
                 <Link
                   href={navItem.href}
                   onClick={closeMobileMenu}
-                  className="block w-full px-8 py-3 mx-2 text-left text-base font-medium text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] transition-colors rounded-lg" // Added margin and border radius
+                  className="block w-full px-8 py-3 mx-2 text-left text-base font-medium text-[rgba(250,249,246,1)] hover:bg-[rgba(250,249,246,0.1)] transition-colors rounded-lg"
                 >
                   {navItem.label}
                 </Link>
