@@ -114,26 +114,32 @@ const retreats: Event[] = [
     cost: "TBD",
     registrationLink: "https://www.youtube.com/watch?v=NhHb9usKy6Q&list=RDNhHb9usKy6Q&start_radio=1",
   },
-  {
-    id: "3",
-    title: "Spring Break Trip",
-    description:
-      "TBD",
-    image: "",
-    location: "TBD",
-    day: "TBD",
-    date: "TBD",
-    longDescription: "TBD",
-    cost: "TBD",
-    registrationLink: "https://www.youtube.com/watch?v=NhHb9usKy6Q&list=RDNhHb9usKy6Q&start_radio=1",
-  },
+  // {
+  //   id: "3",
+  //   title: "Spring Break Trip",
+  //   description:
+  //     "TBD",
+  //   image: "",
+  //   location: "TBD",
+  //   day: "TBD",
+  //   date: "TBD",
+  //   longDescription: "TBD",
+  //   cost: "TBD",
+  //   registrationLink: "https://www.youtube.com/watch?v=NhHb9usKy6Q&list=RDNhHb9usKy6Q&start_radio=1",
+  // },
 ];
 
 const UpcomingEvents: React.FC = () => {
   // Animation hooks for different sections
-  const [featuredRef, featuredVisible] = useScrollAnimation({ threshold: 0.3 });
-  const [eventsHeaderRef, eventsHeaderVisible] = useScrollAnimation({ threshold: 0.5 });
-  const [retreatsHeaderRef, retreatsHeaderVisible] = useScrollAnimation({ threshold: 0.5 });
+  const [featuredRef, featuredVisible] =
+    useScrollAnimation<HTMLDivElement>({ enter: 0.35, exit: 0.1 });
+
+  const [eventsHeaderRef, eventsHeaderVisible] =
+    useScrollAnimation<HTMLDivElement>({ enter: 0.5, exit: 0.15 });
+
+  const [retreatsHeaderRef, retreatsHeaderVisible] =
+    useScrollAnimation<HTMLDivElement>({ enter: 0.5, exit: 0.15 });
+
 
   return (
     <div className="w-full min-h-screen bg-white relative">
@@ -196,7 +202,11 @@ const UpcomingEvents: React.FC = () => {
         {/* Events Heading with full-width centered divider */}
         <div ref={eventsHeaderRef} className="relative mb-8 sm:mb-12 lg:mb-16 flex items-center w-full">
           <hr className={`flex-1 border-t border-gray-400 opacity-80 section-divider ${eventsHeaderVisible ? 'visible' : ''}`} />
-          <h2 className={`text-[#1D2046] font-[Outfit] text-[24px] sm:text-[28px] lg:text-[32px] font-bold leading-[110%] text-transform-capitalize bg-white px-8 section-title ${eventsHeaderVisible ? 'visible' : ''}`}>
+          <h2 className={`text-[#1D2046] font-[Outfit] text-[22px] sm:text-[28px] lg:text-[32px] font-bold leading-[110%] text-transform-capitalize
+            bg-transparent sm:bg-white
+            px-2 sm:px-6
+            rounded sm:rounded-md
+            section-title ${eventsHeaderVisible ? 'visible' : ''}`}>
             EVENTS
           </h2>
           <hr className={`flex-1 border-t border-gray-400 opacity-80 section-divider ${eventsHeaderVisible ? 'visible' : ''}`} />
@@ -219,7 +229,11 @@ const UpcomingEvents: React.FC = () => {
         {/* Retreats Heading with full-width centered divider */}
         <div ref={retreatsHeaderRef} className="relative mb-8 sm:mb-12 lg:mb-16 flex items-center w-full">
           <hr className={`flex-1 border-t border-gray-400 opacity-80 section-divider ${retreatsHeaderVisible ? 'visible' : ''}`} />
-          <h2 className={`text-[#1D2046] font-[Outfit] text-[24px] sm:text-[28px] lg:text-[32px] font-bold leading-[110%] text-transform-capitalize bg-white px-8 section-title ${retreatsHeaderVisible ? 'visible' : ''}`}>
+          <h2 className={`text-[#1D2046] font-[Outfit] text-[22px] sm:text-[28px] lg:text-[32px] font-bold leading-[110%] text-transform-capitalize
+            bg-transparent sm:bg-white
+            px-2 sm:px-6
+            rounded sm:rounded-md
+            section-title ${retreatsHeaderVisible ? 'visible' : ''}`}>
             RETREATS
           </h2>
           <hr className={`flex-1 border-t border-gray-400 opacity-80 section-divider ${retreatsHeaderVisible ? 'visible' : ''}`} />

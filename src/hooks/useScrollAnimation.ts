@@ -1,80 +1,52 @@
-"use client";
+import { useEffect, useRef, useState } from "react";
 
-import { useEffect, useRef, useState } from 'react';
+type Options = {
+  enter?: number;       // % visible to turn ON (0..1)
+  exit?: number;        // % visible to turn OFF (0..1), must be < enter
+  root?: Element | null;
+  rootMargin?: string;  // add a bit of hysteresis vertically too
+  debounceMs?: number;  // optional micro-debounce
+};
 
-interface UseScrollAnimationOptions {
-  threshold?: number;
-  rootMargin?: string;
-  triggerOnce?: boolean;
-}
-
-export const useScrollAnimation = ({
-  threshold = 0.15,
-  rootMargin = '0px 0px -20px 0px',
-  triggerOnce = false
-}: UseScrollAnimationOptions = {}) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+export function useScrollAnimation<T extends HTMLElement>({
+  enter = 0.3,
+  exit = 0.1,
+  root = null,
+  rootMargin = "0px 0px -15% 0px",
+  debounceMs = 0,
+}: Options = {}) {
+  const ref = useRef<T | null>(null);
+  const [visible, setVisible] = useState(false);
+  const debounceRef = useRef<number | null>(null);
 
   useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const onChange = (next: boolean) => {
+      if (debounceMs <= 0) {
+        setVisible(next);
+        return;
+      }
+      if (debounceRef.current) window.clearTimeout(debounceRef.current);
+      debounceRef.current = window.setTimeout(() => setVisible(next), debounceMs);
+    };
+
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            if (triggerOnce) {
-              observer.unobserve(entry.target);
-            }
-          } else if (!triggerOnce) {
-            setIsVisible(false);
-          }
-        });
+      ([entry]) => {
+        const r = entry.intersectionRatio;
+        if (!visible && r >= enter) onChange(true);
+        else if (visible && r <= exit) onChange(false);
       },
-      { threshold, rootMargin }
+      { root, threshold: [exit, enter], rootMargin }
     );
 
-    const currentRef = ref.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
+    observer.observe(node);
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
+      observer.disconnect();
+      if (debounceRef.current) window.clearTimeout(debounceRef.current);
     };
-  }, [threshold, rootMargin, triggerOnce]);
+  }, [enter, exit, root, rootMargin, debounceMs, visible]);
 
-  return [ref, isVisible] as const;
-};
-
-export const useStaggeredAnimation = (
-  itemsCount: number,
-  delay: number = 100,
-  options?: UseScrollAnimationOptions
-) => {
-  const [containerRef, isVisible] = useScrollAnimation({ ...options, triggerOnce: false });
-  const [visibleItems, setVisibleItems] = useState<boolean[]>([]);
-
-  useEffect(() => {
-    if (isVisible && visibleItems.length === 0) {
-      const _newVisibleItems: boolean[] = [];
-
-      for (let i = 0; i < itemsCount; i++) {
-        setTimeout(() => {
-          setVisibleItems(prev => {
-            const updated = [...prev];
-            updated[i] = true;
-            return updated;
-          });
-        }, i * delay);
-      }
-    }
-  }, [isVisible, itemsCount, delay, visibleItems.length]);
-
-  const resetAnimation = () => {
-    setVisibleItems([]);
-  };
-
-  return [containerRef, visibleItems, resetAnimation] as const;
-};
+  return [ref, visible] as const;
+}

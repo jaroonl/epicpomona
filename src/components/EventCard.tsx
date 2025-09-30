@@ -59,7 +59,10 @@ const BackIcon = () => (
 
 export default function EventCard({ event }: EventCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [ref, isVisible] =
+    useScrollAnimation<HTMLDivElement>({ enter: 0.3, exit: 0.08, rootMargin: "0px 0px -15% 0px", debounceMs: 40 });
+
+
   const hasTime = typeof event.time === "string" && event.time.trim() !== "";
   const whenPrefix = [event.day, event.date].filter(Boolean).join(", ");
   const whenText = hasTime ? `${whenPrefix} at ${event.time}` : whenPrefix || "TBD";
@@ -68,7 +71,6 @@ export default function EventCard({ event }: EventCardProps) {
     typeof event.image === "string" && event.image.trim() !== ""
       ? event.image
       : "/images/placeholder.jpg"; // <-- create this file in /public/images/
-
 
 
   const handleFlip = () => {
@@ -89,10 +91,10 @@ export default function EventCard({ event }: EventCardProps) {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="card-image"
             />
-            {/* Date Bubble */}
-            <div className="date-bubble">
-              {event.date}
-            </div>
+            {/* Date Bubble - show only on the FRONT */}
+            {!isFlipped && event.date && (
+              <div className="date-bubble">{event.date}</div>
+            )}
           </div>
 
           {/* Centered Content */}
@@ -220,8 +222,9 @@ export default function EventCard({ event }: EventCardProps) {
       <style jsx>{`
         .card-wrapper {
           perspective: 1000px;
-          width: 364px;
-          min-height: 581px;
+          width: 100%;                           /* <-- fill the grid column */
+          max-width: 364px;                      /* <-- cap on desktop */
+          min-height: clamp(460px, 68vw, 581px); /* <-- responsive height */
           margin: 0;
         }
 
@@ -231,6 +234,7 @@ export default function EventCard({ event }: EventCardProps) {
           height: 100%;
           min-height: 359px;
           transform-style: preserve-3d;
+          -webkit-transform-style: preserve-3d;
           transition: transform 0.6s ease-in-out;
         }
 
@@ -238,12 +242,20 @@ export default function EventCard({ event }: EventCardProps) {
           transform: rotateY(180deg);
         }
 
+        /* Ensure the correct side sits on top */
+        .card-front { z-index: 2; }
+        .card-back  { z-index: 1; }
+        .card-container.flipped .card-front { z-index: 1; }
+        .card-container.flipped .card-back  { z-index: 2; }
+
         .card-side {
           position: absolute;
           width: 100%;
           height: 100%;
           min-height: 581px;
           backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          overflow: hidden;
           border-radius: 8px;
           background: rgba(250, 249, 246, 0.5);
           box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -305,7 +317,7 @@ export default function EventCard({ event }: EventCardProps) {
           text-transform: uppercase;
           letter-spacing: 0.5px;
           backdrop-filter: blur(8px);
-          z-index: 50;
+          z-index: 1;
           box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
           border: 2px solid rgba(255, 255, 255, 0.3);
         }
