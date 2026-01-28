@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Event } from "@/types/events";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface EventCardProps {
   event: Event;
@@ -59,9 +58,6 @@ const BackIcon = () => (
 
 export default function EventCard({ event }: EventCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [ref, isVisible] =
-    useScrollAnimation<HTMLDivElement>({ enter: 0.3, exit: 0.08, rootMargin: "0px 0px -15% 0px", debounceMs: 40 });
-
 
   const hasTime = typeof event.time === "string" && event.time.trim() !== "";
   const whenPrefix = [event.day, event.date].filter(Boolean).join(", ");
@@ -78,7 +74,7 @@ export default function EventCard({ event }: EventCardProps) {
   };
 
   return (
-    <div ref={ref} className={`card-wrapper animate-fade-in-up ${isVisible ? 'visible' : ''}`}>
+    <div className="card-wrapper">
       <div className={`card-container ${isFlipped ? 'flipped' : ''}`}>
         {/* Front Side */}
         <div className="card-side card-front">
@@ -92,7 +88,7 @@ export default function EventCard({ event }: EventCardProps) {
               className="card-image"
             />
             {/* Date Bubble - show only on the FRONT */}
-            {!isFlipped && event.date && (
+            {event.date && (
               <div className="date-bubble">{event.date}</div>
             )}
           </div>
@@ -164,18 +160,12 @@ export default function EventCard({ event }: EventCardProps) {
               <p className="info-content">{event.location}</p>
             </div>
 
-
-
             {event.cost && (
               <div className="info-section">
                 <h4 className="info-title">Cost</h4>
                 <p className="info-content">{event.cost}</p>
               </div>
             )}
-
-
-
-
 
             {event.registrationLink && (
               <div className="info-section">
@@ -320,6 +310,8 @@ export default function EventCard({ event }: EventCardProps) {
           z-index: 1;
           box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
           border: 2px solid rgba(255, 255, 255, 0.3);
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
         }
 
         .card-title {
