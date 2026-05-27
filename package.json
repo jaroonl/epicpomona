@@ -20,7 +20,7 @@
     "@tabler/icons-react": "^3.34.1",
     "lucide-react": "^0.539.0",
     "motion": "^12.19.1",
-    "next": "15.3.2",
+    "next": "15.3.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sanity": "^3.91.0"
